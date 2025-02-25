@@ -141,6 +141,7 @@ class SMBPO(Configurable, Module):
 
             yield t
 
+    # Updates the dymanics model.
     def update_models(self, model_steps):
         log.message(f'Fitting models @ t = {self.steps_sampled.item()}') # number of steps in D_real
         model_losses = self.model_ensemble.fit(self.replay_buffer, steps=model_steps) # Fitting on D_real
@@ -158,7 +159,7 @@ class SMBPO(Configurable, Module):
         r_max = buffer_rewards.max().item() + self.alive_bonus
         self.solver.update_r_bounds(r_min, r_max) # Updating rmax, rmin
 
-    # Collects virtual data from the estimated dynamics model.
+    # Collects virtual data from the estimated dynamics model with a given policy.
     def rollout(self, policy, initial_states=None):
         # Random state from real buffer
         if initial_states is None:
@@ -181,28 +182,30 @@ class SMBPO(Configurable, Module):
         self.virt_buffer.extend(**buffer.get(as_dict=True)) # Add to D_vir.
         return buffer
 
+    # Updates to the SAC
     def update_solver(self, update_actor=True):
         solver = self.solver
         n_real = int(self.real_fraction * solver.batch_size)
-        real_samples = self.replay_buffer.sample(n_real)
-        virt_samples = self.virt_buffer.sample(solver.batch_size - n_real)
+        real_samples = self.replay_buffer.sample(n_real) # D_real
+        virt_samples = self.virt_buffer.sample(solver.batch_size - n_real) # D_vir
         combined_samples = [
-            torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
-        ]
+            torch.cat([real, virt]) for real, virt in zip(real_samples, virt_sampl es)
+        ] # Combined samples
         if self.alive_bonus != 0:
             REWARD_INDEX = 3
             assert combined_samples[REWARD_INDEX].ndim == 1
             combined_samples[REWARD_INDEX] = combined_samples[REWARD_INDEX] + self.alive_bonus
-        critic_loss = solver.update_critic(*combined_samples)
+        critic_loss = solver.update_critic(*combined_samples) # Update Q-values
         self.recent_critic_losses.append(critic_loss)
         if update_actor:
-            solver.update_actor_and_alpha(combined_samples[0])
+            solver.update_actor_and_alpha(combined_samples[0]) # Update policy
 
     def rollout_and_update(self):
-        self.rollout(self.actor)
-        for _ in range(self.solver_updates_per_step):
+        self.rollout(self.actor) # Make samples according to actor and dynamics model.
+        for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step.
             self.update_solver()
 
+    # Initial setup
     def setup(self):
         if self.save_trajectories:
             self.episodes_dir = log.dir/'episodes'
@@ -232,8 +235,9 @@ class SMBPO(Configurable, Module):
         while len(self.virt_buffer) < self.buffer_min: # Collect initial virtual data.
             self.rollout(self.uniform_policy)
 
+    # Main function
     def epoch(self):
-        for _ in trange(self.steps_per_epoch):
+        for _ in trange(self.steps_per_epoch): # 1000 steps
             next(self.stepper)
         self.log_statistics()
         self.epochs_completed += 1
@@ -283,6 +287,8 @@ class SMBPO(Configurable, Module):
             log.message(f'GPU memory info: {gpu_mem_info()}')
 
     def evaluate(self):
+
+        # Returns bunch of trajectories from the environment according to self.solver policy
         eval_traj = sample_episodes_batched(self.eval_env, self.solver, N_EVAL_TRAJ, eval=True)
 
         lengths = [len(traj) for traj in eval_traj]

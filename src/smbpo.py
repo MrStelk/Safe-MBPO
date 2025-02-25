@@ -58,8 +58,8 @@ class SMBPO(Configurable, Module):
 
         self.uniform_policy = UniformPolicy(self.real_env)
 
-        self.register_buffer('episodes_sampled', torch.tensor(0))
-        self.register_buffer('steps_sampled', torch.tensor(0))
+        self.register_buffer('episodes_sampled', torch.tensor(0)) # Sequence of (s,a,s',r) is an episode.
+        self.register_buffer('steps_sampled', torch.tensor(0)) # (s,a,s',r) is a step.
         self.register_buffer('n_violations', torch.tensor(0))
         self.register_buffer('epochs_completed', torch.tensor(0))
 
@@ -81,8 +81,9 @@ class SMBPO(Configurable, Module):
             self.data.append(k, v, verbose=True)
         self.episode_log.row(row)
 
+    # Generates samples from real env.
     def step_generator(self):
-        max_episode_steps = get_max_episode_steps(self.real_env)
+        max_episode_steps = get_max_episode_steps(self.real_env) # Maximum episode length in real env
         episode = self._create_buffer(max_episode_steps)
         state = self.real_env.reset()
         while True:
@@ -93,25 +94,28 @@ class SMBPO(Configurable, Module):
                     self.update_models(self.model_steps)
                 self.rollout_and_update()
             else:
-                policy = self.uniform_policy
+                policy = self.uniform_policy # For initial data collection
             action = policy.act1(state, eval=False)
             next_state, reward, done, info = self.real_env.step(action)
             violation = info['violation']
             assert done == self.check_done(next_state.unsqueeze(0))[0]
             assert violation == self.check_violation(next_state.unsqueeze(0))[0]
+
+            # Add the new step into D_real and the current episode.
             for buffer in [episode, self.replay_buffer]:
                 buffer.append(states=state, actions=action, next_states=next_state,
                               rewards=reward, dones=done, violations=violation)
             self.steps_sampled += 1
 
+            # If env is done or safety violated or episode length reached max
             if done or violation or (len(episode) == max_episode_steps):
-                episode_return = episode.get('rewards').sum().item()
+                episode_return = episode.get('rewards').sum().item() # Full eposide reward.
                 episode_length = len(episode)
-                episode_return_plus_bonus = episode_return + episode_length * self.alive_bonus
-                episode_safe = not episode.get('violations').any()
-                self.episodes_sampled += 1
+                episode_return_plus_bonus = episode_return + episode_length * self.alive_bonus # Some bonus for staying alive?
+                episode_safe = not episode.get('violations').any() # Check if any violated states are visited in episode
+                self.episodes_sampled += 1 # Real episodes sampled 
                 if not episode_safe:
-                    self.n_violations += 1
+                    self.n_violations += 1 # Number of violations in the episode
 
                 self._log_tabular({
                     'episodes sampled': self.episodes_sampled.item(),
@@ -130,7 +134,7 @@ class SMBPO(Configurable, Module):
                     episode.save_h5py(save_path)
                     log.message(f'Saved episode to {save_path}')
 
-                episode = self._create_buffer(max_episode_steps)
+                episode = self._create_buffer(max_episode_steps) # New episode buffer. So we are resetting if violated also.
                 state = self.real_env.reset()
             else:
                 state = next_state
@@ -138,8 +142,10 @@ class SMBPO(Configurable, Module):
             yield t
 
     def update_models(self, model_steps):
-        log.message(f'Fitting models @ t = {self.steps_sampled.item()}')
-        model_losses = self.model_ensemble.fit(self.replay_buffer, steps=model_steps)
+        log.message(f'Fitting models @ t = {self.steps_sampled.item()}') # number of steps in D_real
+        model_losses = self.model_ensemble.fit(self.replay_buffer, steps=model_steps) # Fitting on D_real
+        
+        # Model loss stats.
         start_loss_average = np.mean(model_losses[:LOSS_AVERAGE_WINDOW])
         end_loss_average = np.mean(model_losses[-LOSS_AVERAGE_WINDOW:])
         log.message(f'Loss statistics:')
@@ -147,30 +153,32 @@ class SMBPO(Configurable, Module):
         log.message(f'\tLast {LOSS_AVERAGE_WINDOW}: {end_loss_average}')
         log.message(f'\tDeciles: {deciles(model_losses)}')
 
-        buffer_rewards = self.replay_buffer.get('rewards')
+        buffer_rewards = self.replay_buffer.get('rewards') # All the rewards
         r_min = buffer_rewards.min().item() + self.alive_bonus
         r_max = buffer_rewards.max().item() + self.alive_bonus
-        self.solver.update_r_bounds(r_min, r_max)
+        self.solver.update_r_bounds(r_min, r_max) # Updating rmax, rmin
 
+    # Collects virtual data from the estimated dynamics model.
     def rollout(self, policy, initial_states=None):
+        # Random state from real buffer
         if initial_states is None:
             initial_states = random_choice(self.replay_buffer.get('states'), size=self.rollout_batch_size)
-        buffer = self._create_buffer(self.rollout_batch_size * self.horizon)
+        buffer = self._create_buffer(self.rollout_batch_size * self.horizon) # Virtual episode 
         states = initial_states
         for t in range(self.horizon):
             with torch.no_grad():
-                actions = policy.act(states, eval=False)
-                next_states, rewards = self.model_ensemble.sample(states, actions)
+                actions = policy.act(states, eval=False) # Action
+                next_states, rewards = self.model_ensemble.sample(states, actions) # Prediction from dynamics model
             dones = self.check_done(next_states)
             violations = self.check_violation(next_states)
             buffer.extend(states=states, actions=actions, next_states=next_states,
-                          rewards=rewards, dones=dones, violations=violations)
-            continues = ~(dones | violations)
+                          rewards=rewards, dones=dones, violations=violations) # Add step to virtual episode
+            continues = ~(dones | violations) 
             if continues.sum() == 0:
-                break
+                break # If no choice to continue then stop. else move to next state
             states = next_states[continues]
 
-        self.virt_buffer.extend(**buffer.get(as_dict=True))
+        self.virt_buffer.extend(**buffer.get(as_dict=True)) # Add to D_vir.
         return buffer
 
     def update_solver(self, update_actor=True):
@@ -210,16 +218,18 @@ class SMBPO(Configurable, Module):
         assert len(self.replay_buffer) == self.steps_sampled
 
         self.stepper = self.step_generator()
-
+        
+        # Initial sampling from source with a random policy.
+        # Line 2 in algo
         if len(self.replay_buffer) < self.buffer_min:
             log.message(f'Collecting initial data')
             while len(self.replay_buffer) < self.buffer_min:
                 next(self.stepper)
             log.message('Initial model training')
-            self.update_models(self.model_initial_steps)
+            self.update_models(self.model_initial_steps) # Update dynamics model
 
         log.message(f'Collecting initial virtual data')
-        while len(self.virt_buffer) < self.buffer_min:
+        while len(self.virt_buffer) < self.buffer_min: # Collect initial virtual data.
             self.rollout(self.uniform_policy)
 
     def epoch(self):

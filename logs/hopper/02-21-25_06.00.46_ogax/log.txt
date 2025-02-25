@@ -1,3 +1,0 @@
-[06:00:46] Log directory: /home/shashi/smbpo/logs/hopper/02-21-25_06.00.46_ogax
-[06:00:49] Data load failed
-[06:00:49] Collecting initial data

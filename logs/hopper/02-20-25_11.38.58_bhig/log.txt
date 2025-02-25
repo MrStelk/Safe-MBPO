@@ -1,3 +1,0 @@
-[11:38:58] Log directory: /home/shashi/smbpo/logs/hopper/02-20-25_11.38.58_bhig
-[11:39:01] Data load failed
-[11:39:01] Collecting initial data

@@ -1,3 +1,0 @@
-[04:50:43] Log directory: /home/shashi/smbpo/logs/ant/02-21-25_04.50.43_wgjs
-[04:50:46] Data load failed
-[04:50:46] Collecting initial data

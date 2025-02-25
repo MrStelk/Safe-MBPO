@@ -189,7 +189,7 @@ class SMBPO(Configurable, Module):
         real_samples = self.replay_buffer.sample(n_real) # D_real
         virt_samples = self.virt_buffer.sample(solver.batch_size - n_real) # D_vir
         combined_samples = [
-            torch.cat([real, virt]) for real, virt in zip(real_samples, virt_sampl es)
+            torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
         ] # Combined samples
         if self.alive_bonus != 0:
             REWARD_INDEX = 3

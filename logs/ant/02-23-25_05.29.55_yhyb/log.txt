@@ -1,0 +1,1257 @@
+[05:29:55] Log directory: /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb
+[05:45:53] Data load failed
+[05:45:53] Collecting initial data
+[05:45:56] episodes sampled: 1
+[05:45:56] total violations: 1
+[05:45:56] steps sampled: 130
+[05:45:56] collect return: -220.38
+[05:45:56] collect return (+bonus): -220.38
+[05:45:56] collect length: 130
+[05:45:56] collect safe: False
+[05:45:56] eval return mean: -111.05
+[05:45:56] eval return std: 66.12
+[05:45:56] eval length mean: 224.20
+[05:45:56] eval length std: 157.71
+[05:45:56] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-1.h5py
+[05:45:58] episodes sampled: 2
+[05:45:58] total violations: 2
+[05:45:58] steps sampled: 246
+[05:45:58] collect return: -184.71
+[05:45:58] collect return (+bonus): -184.71
+[05:45:58] collect length: 116
+[05:45:58] collect safe: False
+[05:45:58] eval return mean: -46.91
+[05:45:58] eval return std: 47.42
+[05:45:58] eval length mean: 98.20
+[05:45:58] eval length std: 58.08
+[05:45:58] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-2.h5py
+[05:45:59] episodes sampled: 3
+[05:45:59] total violations: 3
+[05:45:59] steps sampled: 262
+[05:45:59] collect return: -25.55
+[05:45:59] collect return (+bonus): -25.55
+[05:45:59] collect length: 16
+[05:45:59] collect safe: False
+[05:45:59] eval return mean: -51.93
+[05:45:59] eval return std: 39.04
+[05:45:59] eval length mean: 96.40
+[05:45:59] eval length std: 63.73
+[05:45:59] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-3.h5py
+[05:46:04] episodes sampled: 4
+[05:46:04] total violations: 4
+[05:46:04] steps sampled: 506
+[05:46:04] collect return: -375.54
+[05:46:04] collect return (+bonus): -375.54
+[05:46:04] collect length: 244
+[05:46:04] collect safe: False
+[05:46:04] eval return mean: -135.21
+[05:46:04] eval return std: 99.93
+[05:46:04] eval length mean: 250.20
+[05:46:04] eval length std: 170.49
+[05:46:04] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-4.h5py
+[05:46:07] episodes sampled: 5
+[05:46:07] total violations: 5
+[05:46:07] steps sampled: 579
+[05:46:07] collect return: -79.41
+[05:46:07] collect return (+bonus): -79.41
+[05:46:07] collect length: 73
+[05:46:07] collect safe: False
+[05:46:07] eval return mean: -104.99
+[05:46:07] eval return std: 65.42
+[05:46:07] eval length mean: 197.10
+[05:46:07] eval length std: 127.11
+[05:46:07] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-5.h5py
+[05:46:09] episodes sampled: 6
+[05:46:09] total violations: 6
+[05:46:09] steps sampled: 688
+[05:46:09] collect return: -158.71
+[05:46:09] collect return (+bonus): -158.71
+[05:46:09] collect length: 109
+[05:46:09] collect safe: False
+[05:46:09] eval return mean: -84.77
+[05:46:09] eval return std: 49.41
+[05:46:09] eval length mean: 178.40
+[05:46:09] eval length std: 106.93
+[05:46:09] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-6.h5py
+[05:46:11] episodes sampled: 7
+[05:46:11] total violations: 7
+[05:46:11] steps sampled: 817
+[05:46:11] collect return: -156.33
+[05:46:11] collect return (+bonus): -156.33
+[05:46:11] collect length: 129
+[05:46:11] collect safe: False
+[05:46:11] eval return mean: -64.64
+[05:46:11] eval return std: 44.42
+[05:46:11] eval length mean: 92.00
+[05:46:11] eval length std: 58.61
+[05:46:11] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-7.h5py
+[05:46:16] episodes sampled: 8
+[05:46:16] total violations: 8
+[05:46:16] steps sampled: 919
+[05:46:16] collect return: -160.26
+[05:46:16] collect return (+bonus): -160.26
+[05:46:16] collect length: 102
+[05:46:16] collect safe: False
+[05:46:16] eval return mean: -71.43
+[05:46:16] eval return std: 43.90
+[05:46:16] eval length mean: 120.50
+[05:46:16] eval length std: 87.47
+[05:46:16] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-8.h5py
+[05:46:18] episodes sampled: 9
+[05:46:18] total violations: 9
+[05:46:18] steps sampled: 992
+[05:46:18] collect return: -69.87
+[05:46:18] collect return (+bonus): -69.87
+[05:46:18] collect length: 73
+[05:46:18] collect safe: False
+[05:46:18] eval return mean: -42.52
+[05:46:18] eval return std: 47.33
+[05:46:18] eval length mean: 105.90
+[05:46:18] eval length std: 85.17
+[05:46:18] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-9.h5py
+[05:46:21] episodes sampled: 10
+[05:46:21] total violations: 10
+[05:46:21] steps sampled: 1152
+[05:46:21] collect return: -145.41
+[05:46:21] collect return (+bonus): -145.41
+[05:46:21] collect length: 160
+[05:46:21] collect safe: False
+[05:46:21] eval return mean: -126.62
+[05:46:21] eval return std: 76.83
+[05:46:21] eval length mean: 215.70
+[05:46:21] eval length std: 70.79
+[05:46:21] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-10.h5py
+[05:46:27] episodes sampled: 11
+[05:46:27] total violations: 11
+[05:46:27] steps sampled: 1178
+[05:46:27] collect return: -25.34
+[05:46:27] collect return (+bonus): -25.34
+[05:46:27] collect length: 26
+[05:46:27] collect safe: False
+[05:46:27] eval return mean: -191.30
+[05:46:27] eval return std: 185.97
+[05:46:27] eval length mean: 409.70
+[05:46:27] eval length std: 391.04
+[05:46:27] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-11.h5py
+[05:46:29] episodes sampled: 12
+[05:46:29] total violations: 12
+[05:46:29] steps sampled: 1250
+[05:46:29] collect return: -87.03
+[05:46:29] collect return (+bonus): -87.03
+[05:46:29] collect length: 72
+[05:46:29] collect safe: False
+[05:46:29] eval return mean: -96.84
+[05:46:29] eval return std: 54.84
+[05:46:29] eval length mean: 148.80
+[05:46:29] eval length std: 74.93
+[05:46:29] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-12.h5py
+[05:46:32] episodes sampled: 13
+[05:46:32] total violations: 13
+[05:46:32] steps sampled: 1442
+[05:46:32] collect return: -248.33
+[05:46:32] collect return (+bonus): -248.33
+[05:46:32] collect length: 192
+[05:46:32] collect safe: False
+[05:46:32] eval return mean: -81.18
+[05:46:32] eval return std: 53.50
+[05:46:32] eval length mean: 197.10
+[05:46:32] eval length std: 101.17
+[05:46:32] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-13.h5py
+[05:46:34] episodes sampled: 14
+[05:46:34] total violations: 14
+[05:46:34] steps sampled: 1481
+[05:46:34] collect return: -44.10
+[05:46:34] collect return (+bonus): -44.10
+[05:46:34] collect length: 39
+[05:46:34] collect safe: False
+[05:46:34] eval return mean: -47.64
+[05:46:34] eval return std: 36.71
+[05:46:34] eval length mean: 73.40
+[05:46:34] eval length std: 53.72
+[05:46:34] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-14.h5py
+[05:46:38] episodes sampled: 15
+[05:46:38] total violations: 15
+[05:46:38] steps sampled: 1582
+[05:46:38] collect return: -88.98
+[05:46:38] collect return (+bonus): -88.98
+[05:46:38] collect length: 101
+[05:46:38] collect safe: False
+[05:46:38] eval return mean: -115.40
+[05:46:38] eval return std: 87.83
+[05:46:38] eval length mean: 223.20
+[05:46:38] eval length std: 187.52
+[05:46:38] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-15.h5py
+[05:46:40] episodes sampled: 16
+[05:46:40] total violations: 16
+[05:46:40] steps sampled: 1711
+[05:46:40] collect return: -152.31
+[05:46:40] collect return (+bonus): -152.31
+[05:46:40] collect length: 129
+[05:46:40] collect safe: False
+[05:46:40] eval return mean: -82.77
+[05:46:40] eval return std: 61.83
+[05:46:40] eval length mean: 171.50
+[05:46:40] eval length std: 127.52
+[05:46:40] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-16.h5py
+[05:46:44] episodes sampled: 17
+[05:46:44] total violations: 17
+[05:46:44] steps sampled: 1786
+[05:46:44] collect return: -94.88
+[05:46:44] collect return (+bonus): -94.88
+[05:46:44] collect length: 75
+[05:46:44] collect safe: False
+[05:46:44] eval return mean: -132.09
+[05:46:44] eval return std: 78.66
+[05:46:44] eval length mean: 225.20
+[05:46:44] eval length std: 166.45
+[05:46:44] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-17.h5py
+[05:46:47] episodes sampled: 18
+[05:46:47] total violations: 18
+[05:46:47] steps sampled: 1864
+[05:46:47] collect return: -92.58
+[05:46:47] collect return (+bonus): -92.58
+[05:46:47] collect length: 78
+[05:46:47] collect safe: False
+[05:46:47] eval return mean: -79.84
+[05:46:47] eval return std: 61.73
+[05:46:47] eval length mean: 137.90
+[05:46:47] eval length std: 109.15
+[05:46:47] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-18.h5py
+[05:46:51] episodes sampled: 19
+[05:46:51] total violations: 19
+[05:46:51] steps sampled: 1914
+[05:46:51] collect return: -79.71
+[05:46:51] collect return (+bonus): -79.71
+[05:46:51] collect length: 50
+[05:46:51] collect safe: False
+[05:46:51] eval return mean: -125.45
+[05:46:51] eval return std: 89.08
+[05:46:51] eval length mean: 266.90
+[05:46:51] eval length std: 163.06
+[05:46:51] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-19.h5py
+[05:46:55] episodes sampled: 20
+[05:46:55] total violations: 19
+[05:46:55] steps sampled: 2914
+[05:46:55] collect return: -1376.16
+[05:46:55] collect return (+bonus): -1376.16
+[05:46:55] collect length: 1000
+[05:46:55] collect safe: True
+[05:46:55] eval return mean: -87.80
+[05:46:55] eval return std: 63.73
+[05:46:55] eval length mean: 153.50
+[05:46:55] eval length std: 135.03
+[05:46:55] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-20.h5py
+[05:47:00] episodes sampled: 21
+[05:47:00] total violations: 20
+[05:47:00] steps sampled: 3015
+[05:47:00] collect return: -90.87
+[05:47:00] collect return (+bonus): -90.87
+[05:47:00] collect length: 101
+[05:47:00] collect safe: False
+[05:47:00] eval return mean: -112.69
+[05:47:00] eval return std: 86.46
+[05:47:00] eval length mean: 214.90
+[05:47:00] eval length std: 209.22
+[05:47:00] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-21.h5py
+[05:47:04] episodes sampled: 22
+[05:47:04] total violations: 21
+[05:47:04] steps sampled: 3041
+[05:47:04] collect return: -39.52
+[05:47:04] collect return (+bonus): -39.52
+[05:47:04] collect length: 26
+[05:47:04] collect safe: False
+[05:47:04] eval return mean: -119.45
+[05:47:04] eval return std: 102.30
+[05:47:04] eval length mean: 216.40
+[05:47:04] eval length std: 179.05
+[05:47:04] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-22.h5py
+[05:47:07] episodes sampled: 23
+[05:47:07] total violations: 21
+[05:47:07] steps sampled: 4041
+[05:47:07] collect return: -1348.32
+[05:47:07] collect return (+bonus): -1348.32
+[05:47:07] collect length: 1000
+[05:47:07] collect safe: True
+[05:47:07] eval return mean: -84.95
+[05:47:07] eval return std: 48.14
+[05:47:07] eval length mean: 114.20
+[05:47:07] eval length std: 73.45
+[05:47:07] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-23.h5py
+[05:47:08] episodes sampled: 24
+[05:47:08] total violations: 22
+[05:47:08] steps sampled: 4096
+[05:47:08] collect return: -83.86
+[05:47:08] collect return (+bonus): -83.86
+[05:47:08] collect length: 55
+[05:47:08] collect safe: False
+[05:47:08] eval return mean: -67.79
+[05:47:08] eval return std: 46.75
+[05:47:08] eval length mean: 106.80
+[05:47:08] eval length std: 71.90
+[05:47:08] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-24.h5py
+[05:47:11] episodes sampled: 25
+[05:47:11] total violations: 23
+[05:47:11] steps sampled: 4111
+[05:47:11] collect return: -21.94
+[05:47:11] collect return (+bonus): -21.94
+[05:47:11] collect length: 15
+[05:47:11] collect safe: False
+[05:47:11] eval return mean: -71.85
+[05:47:11] eval return std: 52.79
+[05:47:11] eval length mean: 139.20
+[05:47:11] eval length std: 104.29
+[05:47:11] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-25.h5py
+[05:47:14] episodes sampled: 26
+[05:47:14] total violations: 24
+[05:47:14] steps sampled: 4141
+[05:47:14] collect return: -31.22
+[05:47:14] collect return (+bonus): -31.22
+[05:47:14] collect length: 30
+[05:47:14] collect safe: False
+[05:47:14] eval return mean: -82.66
+[05:47:14] eval return std: 64.88
+[05:47:14] eval length mean: 164.40
+[05:47:14] eval length std: 128.11
+[05:47:14] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-26.h5py
+[05:47:16] episodes sampled: 27
+[05:47:16] total violations: 25
+[05:47:16] steps sampled: 4187
+[05:47:16] collect return: -69.87
+[05:47:16] collect return (+bonus): -69.87
+[05:47:16] collect length: 46
+[05:47:16] collect safe: False
+[05:47:16] eval return mean: -82.85
+[05:47:16] eval return std: 47.71
+[05:47:16] eval length mean: 126.40
+[05:47:16] eval length std: 64.08
+[05:47:16] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-27.h5py
+[05:47:18] episodes sampled: 28
+[05:47:18] total violations: 26
+[05:47:18] steps sampled: 4268
+[05:47:18] collect return: -126.81
+[05:47:18] collect return (+bonus): -126.81
+[05:47:18] collect length: 81
+[05:47:18] collect safe: False
+[05:47:18] eval return mean: -100.53
+[05:47:18] eval return std: 76.52
+[05:47:18] eval length mean: 164.20
+[05:47:18] eval length std: 128.57
+[05:47:18] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-28.h5py
+[05:47:21] episodes sampled: 29
+[05:47:21] total violations: 27
+[05:47:21] steps sampled: 4302
+[05:47:21] collect return: -76.50
+[05:47:21] collect return (+bonus): -76.50
+[05:47:21] collect length: 34
+[05:47:21] collect safe: False
+[05:47:21] eval return mean: -132.81
+[05:47:21] eval return std: 64.92
+[05:47:21] eval length mean: 230.40
+[05:47:21] eval length std: 130.58
+[05:47:21] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-29.h5py
+[05:47:24] episodes sampled: 30
+[05:47:24] total violations: 28
+[05:47:24] steps sampled: 4368
+[05:47:24] collect return: -101.97
+[05:47:24] collect return (+bonus): -101.97
+[05:47:24] collect length: 66
+[05:47:24] collect safe: False
+[05:47:24] eval return mean: -85.40
+[05:47:24] eval return std: 43.95
+[05:47:24] eval length mean: 167.00
+[05:47:24] eval length std: 125.47
+[05:47:24] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-30.h5py
+[05:47:26] episodes sampled: 31
+[05:47:26] total violations: 29
+[05:47:26] steps sampled: 4483
+[05:47:26] collect return: -120.30
+[05:47:26] collect return (+bonus): -120.30
+[05:47:26] collect length: 115
+[05:47:26] collect safe: False
+[05:47:26] eval return mean: -61.79
+[05:47:26] eval return std: 40.08
+[05:47:26] eval length mean: 108.50
+[05:47:26] eval length std: 79.68
+[05:47:26] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-31.h5py
+[05:47:29] episodes sampled: 32
+[05:47:29] total violations: 30
+[05:47:29] steps sampled: 4520
+[05:47:29] collect return: -74.89
+[05:47:29] collect return (+bonus): -74.89
+[05:47:29] collect length: 37
+[05:47:29] collect safe: False
+[05:47:29] eval return mean: -101.59
+[05:47:29] eval return std: 92.68
+[05:47:29] eval length mean: 173.30
+[05:47:29] eval length std: 157.67
+[05:47:29] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-32.h5py
+[05:47:31] episodes sampled: 33
+[05:47:31] total violations: 31
+[05:47:31] steps sampled: 4627
+[05:47:31] collect return: -154.66
+[05:47:31] collect return (+bonus): -154.66
+[05:47:31] collect length: 107
+[05:47:31] collect safe: False
+[05:47:31] eval return mean: -69.11
+[05:47:31] eval return std: 52.15
+[05:47:31] eval length mean: 112.70
+[05:47:31] eval length std: 81.05
+[05:47:31] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-33.h5py
+[05:47:31] Initial model training
+[05:47:31] Fitting models @ t = 5000
+[05:47:58] Loss statistics:
+[05:47:58] 	First 10: 251.26516418457032
+[05:47:58] 	Last 10: -100.79170532226563
+[05:47:58] 	Deciles: tensor([-102.6230,  -96.8554,  -91.8929,  -86.6007,  -80.5972,  -73.6766,
+         -65.9904,  -57.4329,  -46.9400,  -30.4449,  262.5429])
+[05:47:58] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:47:58] Collecting initial virtual data
+[05:48:01] Beginning epoch 1
+[05:48:01] Fitting models @ t = 5000
+[05:48:06] Loss statistics:
+[05:48:06] 	First 10: -100.93842468261718
+[05:48:06] 	Last 10: -106.16403884887696
+[05:48:06] 	Deciles: tensor([-108.5664, -105.6401, -104.9494, -104.3943, -103.9001, -103.3955,
+        -102.8758, -102.3715, -101.8728, -101.2847,  -97.5383])
+[05:48:06] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:48:27] Fitting models @ t = 5250
+[05:48:32] Loss statistics:
+[05:48:32] 	First 10: -104.47505264282226
+[05:48:32] 	Last 10: -109.58534622192383
+[05:48:32] 	Deciles: tensor([-112.0552, -109.1780, -108.5747, -108.1267, -107.7461, -107.4186,
+        -107.0409, -106.6509, -106.1765, -105.6028, -103.0754])
+[05:48:32] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:48:52] Fitting models @ t = 5500
+[05:48:57] Loss statistics:
+[05:48:57] 	First 10: -108.7098892211914
+[05:48:57] 	Last 10: -113.16966247558594
+[05:48:57] 	Deciles: tensor([-115.4735, -113.0672, -112.4391, -111.9533, -111.5253, -111.1288,
+        -110.7629, -110.3734, -109.8774, -109.2276,  -96.3035])
+[05:48:57] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:49:14] episodes sampled: 34
+[05:49:14] total violations: 31
+[05:49:14] steps sampled: 5627
+[05:49:14] collect return: -1172.19
+[05:49:14] collect return (+bonus): -1172.19
+[05:49:14] collect length: 1000
+[05:49:14] collect safe: True
+[05:49:14] eval return mean: -931.02
+[05:49:14] eval return std: 50.69
+[05:49:14] eval length mean: 1000.00
+[05:49:14] eval length std: 0.00
+[05:49:14] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-34.h5py
+[05:49:23] Fitting models @ t = 5750
+[05:49:29] Loss statistics:
+[05:49:29] 	First 10: -109.23795547485352
+[05:49:29] 	Last 10: -116.2768180847168
+[05:49:29] 	Deciles: tensor([-119.0078, -116.5223, -115.9674, -115.5493, -115.1668, -114.7581,
+        -114.3870, -113.8925, -113.3370, -112.5947, -104.4525])
+[05:49:29] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:49:49] Model 1 error deciles: tensor([0.1501, 0.4970, 0.6415, 0.7677, 0.9095, 1.0742, 1.2675, 1.5101, 1.8865,
+        2.6478, 8.6342])
+[05:49:49] Model 2 error deciles: tensor([0.1705, 0.4886, 0.6283, 0.7515, 0.8918, 1.0618, 1.2423, 1.5000, 1.8712,
+        2.6681, 8.7214])
+[05:49:49] Model 3 error deciles: tensor([0.1802, 0.4725, 0.6014, 0.7302, 0.8756, 1.0378, 1.2427, 1.5131, 1.8685,
+        2.6752, 8.3218])
+[05:49:49] Model 4 error deciles: tensor([0.2003, 0.5332, 0.6698, 0.7966, 0.9291, 1.1013, 1.2847, 1.5183, 1.8750,
+        2.6588, 8.4057])
+[05:49:49] Model 5 error deciles: tensor([0.1962, 0.5265, 0.6522, 0.7784, 0.9252, 1.0905, 1.2829, 1.5475, 1.9279,
+        2.6843, 9.0040])
+[05:49:49] Average recent critic loss: 2762.9794921875
+[05:49:49] Buffer sizes:
+[05:49:49] 	Real: 6000
+[05:49:49] 	Virtual: 980087
+[05:49:49] Average Q real (done): -424.17401123046875
+[05:49:49] Average Q real (~done): -214.30369567871094
+[05:49:49] Average Q virtual (done): -341.3975524902344
+[05:49:49] Average Q virtual (~done): -216.33154296875
+[05:49:49] GPU memory info: {'total': '42 GB', 'reserved': '2 GB', 'allocated': '696 MB', 'reserved but unallocated': '1 GB'}
+[05:49:56] Beginning epoch 2
+[05:49:56] Fitting models @ t = 6000
+[05:50:02] Loss statistics:
+[05:50:02] 	First 10: -111.46618881225587
+[05:50:02] 	Last 10: -120.46799850463867
+[05:50:02] 	Deciles: tensor([-122.3726, -119.6101, -119.0891, -118.5884, -118.1802, -117.8332,
+        -117.4450, -117.0144, -116.5117, -115.8447, -106.2261])
+[05:50:02] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:50:21] Fitting models @ t = 6250
+[05:50:27] Loss statistics:
+[05:50:27] 	First 10: -116.0005096435547
+[05:50:27] 	Last 10: -123.12093963623047
+[05:50:27] 	Deciles: tensor([-125.3330, -123.1688, -122.6363, -122.2483, -121.9021, -121.5776,
+        -121.2374, -120.8525, -120.3426, -119.5778, -110.4144])
+[05:50:27] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:50:47] Fitting models @ t = 6500
+[05:50:52] Loss statistics:
+[05:50:52] 	First 10: -116.7290054321289
+[05:50:52] 	Last 10: -124.68510818481445
+[05:50:52] 	Deciles: tensor([-128.1429, -126.0952, -125.5117, -125.1339, -124.7991, -124.4715,
+        -124.1192, -123.7340, -123.2463, -122.4383, -106.7595])
+[05:50:52] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:51:09] episodes sampled: 35
+[05:51:09] total violations: 31
+[05:51:09] steps sampled: 6627
+[05:51:09] collect return: -1664.38
+[05:51:09] collect return (+bonus): -1664.38
+[05:51:09] collect length: 1000
+[05:51:09] collect safe: True
+[05:51:09] eval return mean: -2169.26
+[05:51:09] eval return std: 124.73
+[05:51:09] eval length mean: 1000.00
+[05:51:09] eval length std: 0.00
+[05:51:09] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-35.h5py
+[05:51:19] Fitting models @ t = 6750
+[05:51:24] Loss statistics:
+[05:51:24] 	First 10: -119.0306510925293
+[05:51:24] 	Last 10: -129.4777801513672
+[05:51:24] 	Deciles: tensor([-131.7800, -128.9378, -128.4106, -127.9603, -127.5734, -127.1670,
+        -126.8265, -126.3944, -125.9031, -125.0739, -113.9325])
+[05:51:24] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:51:44] Model 1 error deciles: tensor([0.0970, 0.3603, 0.5033, 0.6403, 0.7841, 0.9590, 1.1698, 1.4136, 1.7980,
+        2.6195, 8.9056])
+[05:51:44] Model 2 error deciles: tensor([0.0993, 0.3718, 0.5168, 0.6518, 0.8050, 0.9709, 1.1813, 1.4407, 1.8303,
+        2.6417, 8.8072])
+[05:51:44] Model 3 error deciles: tensor([0.0773, 0.3537, 0.4957, 0.6330, 0.7850, 0.9569, 1.1639, 1.4469, 1.8467,
+        2.6704, 8.3137])
+[05:51:44] Model 4 error deciles: tensor([0.0975, 0.3689, 0.5143, 0.6443, 0.7963, 0.9673, 1.1768, 1.4273, 1.7927,
+        2.6193, 8.7959])
+[05:51:44] Model 5 error deciles: tensor([0.1047, 0.3819, 0.5259, 0.6678, 0.8128, 0.9943, 1.2061, 1.4662, 1.8678,
+        2.6683, 9.1600])
+[05:51:44] Average recent critic loss: 694.1658325195312
+[05:51:44] Buffer sizes:
+[05:51:44] 	Real: 7000
+[05:51:44] 	Virtual: 1000000
+[05:51:44] Average Q real (done): -496.1459655761719
+[05:51:44] Average Q real (~done): -216.76925659179688
+[05:51:44] Average Q virtual (done): -382.7582702636719
+[05:51:45] Average Q virtual (~done): -204.12840270996094
+[05:51:45] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '809 MB', 'reserved but unallocated': '3 GB'}
+[05:51:51] Beginning epoch 3
+[05:51:51] Fitting models @ t = 7000
+[05:51:56] Loss statistics:
+[05:51:56] 	First 10: -122.30936431884766
+[05:51:56] 	Last 10: -131.03619384765625
+[05:51:56] 	Deciles: tensor([-133.3963, -131.0493, -130.4347, -130.0553, -129.6819, -129.3652,
+        -128.9986, -128.5776, -128.0827, -127.3762, -114.5058])
+[05:51:56] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:52:16] Fitting models @ t = 7250
+[05:52:21] Loss statistics:
+[05:52:21] 	First 10: -124.02221984863282
+[05:52:21] 	Last 10: -133.86075592041016
+[05:52:21] 	Deciles: tensor([-135.3437, -132.9605, -132.3659, -131.9554, -131.5650, -131.1873,
+        -130.7919, -130.4345, -129.9617, -129.2303, -119.5265])
+[05:52:21] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:52:41] Fitting models @ t = 7500
+[05:52:47] Loss statistics:
+[05:52:47] 	First 10: -125.07483596801758
+[05:52:47] 	Last 10: -132.37715911865234
+[05:52:47] 	Deciles: tensor([-137.5015, -134.6906, -134.0938, -133.6541, -133.2977, -132.9036,
+        -132.5038, -132.1513, -131.6841, -130.9859, -117.5591])
+[05:52:47] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:53:03] episodes sampled: 36
+[05:53:03] total violations: 31
+[05:53:03] steps sampled: 7627
+[05:53:03] collect return: -1827.41
+[05:53:03] collect return (+bonus): -1827.41
+[05:53:03] collect length: 1000
+[05:53:03] collect safe: True
+[05:53:03] eval return mean: -1851.99
+[05:53:03] eval return std: 88.46
+[05:53:03] eval length mean: 1000.00
+[05:53:03] eval length std: 0.00
+[05:53:03] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-36.h5py
+[05:53:13] Fitting models @ t = 7750
+[05:53:18] Loss statistics:
+[05:53:18] 	First 10: -127.79922180175781
+[05:53:18] 	Last 10: -135.4428955078125
+[05:53:18] 	Deciles: tensor([-138.2514, -136.0790, -135.4953, -135.0659, -134.6872, -134.3314,
+        -133.9871, -133.5857, -133.0629, -132.3077, -122.3518])
+[05:53:18] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:53:38] Model 1 error deciles: tensor([0.0939, 0.3350, 0.4779, 0.6108, 0.7501, 0.9316, 1.1476, 1.4099, 1.7923,
+        2.5943, 8.9698])
+[05:53:38] Model 2 error deciles: tensor([0.0817, 0.3554, 0.4904, 0.6234, 0.7780, 0.9462, 1.1679, 1.4363, 1.8207,
+        2.6101, 8.8798])
+[05:53:38] Model 3 error deciles: tensor([0.0811, 0.3329, 0.4654, 0.5974, 0.7452, 0.9351, 1.1443, 1.4298, 1.8441,
+        2.6485, 8.1771])
+[05:53:38] Model 4 error deciles: tensor([0.0788, 0.3542, 0.4897, 0.6161, 0.7692, 0.9529, 1.1596, 1.4182, 1.8000,
+        2.5957, 9.1515])
+[05:53:38] Model 5 error deciles: tensor([0.0825, 0.3593, 0.4946, 0.6283, 0.7809, 0.9652, 1.1804, 1.4578, 1.8553,
+        2.6799, 9.0384])
+[05:53:39] Average recent critic loss: 388.295654296875
+[05:53:39] Buffer sizes:
+[05:53:39] 	Real: 8000
+[05:53:39] 	Virtual: 1000000
+[05:53:39] Average Q real (done): -557.250732421875
+[05:53:39] Average Q real (~done): -202.65567016601562
+[05:53:39] Average Q virtual (done): -430.19390869140625
+[05:53:39] Average Q virtual (~done): -193.009521484375
+[05:53:39] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '809 MB', 'reserved but unallocated': '3 GB'}
+[05:53:45] Beginning epoch 4
+[05:53:45] Fitting models @ t = 8000
+[05:53:51] Loss statistics:
+[05:53:51] 	First 10: -131.69017333984374
+[05:53:51] 	Last 10: -136.1257797241211
+[05:53:51] 	Deciles: tensor([-140.0384, -137.1786, -136.5934, -136.2108, -135.8062, -135.4661,
+        -135.0869, -134.7019, -134.2661, -133.6193, -128.5092])
+[05:53:51] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:54:11] Fitting models @ t = 8250
+[05:54:16] Loss statistics:
+[05:54:16] 	First 10: -132.01980438232422
+[05:54:16] 	Last 10: -137.19261474609374
+[05:54:16] 	Deciles: tensor([-140.2528, -138.1941, -137.6816, -137.2583, -136.8879, -136.5243,
+        -136.1967, -135.8019, -135.3532, -134.6550, -129.6942])
+[05:54:16] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:54:36] Fitting models @ t = 8500
+[05:54:41] Loss statistics:
+[05:54:41] 	First 10: -132.0850067138672
+[05:54:41] 	Last 10: -138.41956634521483
+[05:54:41] 	Deciles: tensor([-141.6673, -139.3379, -138.8600, -138.4665, -138.0412, -137.7011,
+        -137.3270, -136.9445, -136.4682, -135.7791, -127.1026])
+[05:54:41] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:54:58] episodes sampled: 37
+[05:54:58] total violations: 31
+[05:54:58] steps sampled: 8627
+[05:54:58] collect return: -1537.80
+[05:54:58] collect return (+bonus): -1537.80
+[05:54:58] collect length: 1000
+[05:54:58] collect safe: True
+[05:54:58] eval return mean: -1467.95
+[05:54:58] eval return std: 168.38
+[05:54:58] eval length mean: 1000.00
+[05:54:58] eval length std: 0.00
+[05:54:58] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-37.h5py
+[05:55:08] Fitting models @ t = 8750
+[05:55:13] Loss statistics:
+[05:55:13] 	First 10: -133.4649185180664
+[05:55:13] 	Last 10: -140.35802612304687
+[05:55:13] 	Deciles: tensor([-143.8468, -141.1763, -140.6162, -140.2009, -139.8462, -139.4953,
+        -139.1244, -138.7104, -138.2561, -137.4954, -130.5272])
+[05:55:13] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:55:33] Model 1 error deciles: tensor([0.0629, 0.3109, 0.4416, 0.5666, 0.7144, 0.8842, 1.1006, 1.3701, 1.7450,
+        2.5318, 9.0837])
+[05:55:33] Model 2 error deciles: tensor([0.0730, 0.3172, 0.4496, 0.5774, 0.7196, 0.8990, 1.1104, 1.3863, 1.7778,
+        2.5416, 9.3909])
+[05:55:33] Model 3 error deciles: tensor([0.0903, 0.3185, 0.4407, 0.5620, 0.7091, 0.8887, 1.1106, 1.4043, 1.8160,
+        2.6036, 8.5939])
+[05:55:33] Model 4 error deciles: tensor([0.1224, 0.3269, 0.4550, 0.5767, 0.7158, 0.8936, 1.1047, 1.3785, 1.7535,
+        2.5419, 9.3602])
+[05:55:33] Model 5 error deciles: tensor([0.0557, 0.3157, 0.4466, 0.5712, 0.7212, 0.8999, 1.1224, 1.4053, 1.8081,
+        2.6101, 9.3482])
+[05:55:33] Average recent critic loss: 338.1603698730469
+[05:55:33] Buffer sizes:
+[05:55:33] 	Real: 9000
+[05:55:33] 	Virtual: 1000000
+[05:55:33] Average Q real (done): -598.6580200195312
+[05:55:33] Average Q real (~done): -209.8683319091797
+[05:55:33] Average Q virtual (done): -510.0801086425781
+[05:55:34] Average Q virtual (~done): -202.9251251220703
+[05:55:34] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '809 MB', 'reserved but unallocated': '3 GB'}
+[05:55:40] Beginning epoch 5
+[05:55:40] Fitting models @ t = 9000
+[05:55:46] Loss statistics:
+[05:55:46] 	First 10: -136.63594665527344
+[05:55:46] 	Last 10: -138.70840454101562
+[05:55:46] 	Deciles: tensor([-145.3907, -143.0199, -142.4602, -142.0442, -141.6357, -141.2634,
+        -140.8291, -140.4438, -140.0028, -139.3505, -132.4640])
+[05:55:46] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:56:06] Fitting models @ t = 9250
+[05:56:11] Loss statistics:
+[05:56:11] 	First 10: -135.2707534790039
+[05:56:11] 	Last 10: -143.40135955810547
+[05:56:11] 	Deciles: tensor([-148.1634, -145.0308, -144.3674, -143.9772, -143.5637, -143.2315,
+        -142.8570, -142.3781, -141.7999, -141.0690, -130.5437])
+[05:56:11] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:56:31] Fitting models @ t = 9500
+[05:56:36] Loss statistics:
+[05:56:36] 	First 10: -138.4866149902344
+[05:56:36] 	Last 10: -145.11202850341797
+[05:56:36] 	Deciles: tensor([-150.3361, -146.9452, -146.2646, -145.8379, -145.4232, -145.0365,
+        -144.6411, -144.2223, -143.6693, -142.9347, -133.3691])
+[05:56:36] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:56:53] episodes sampled: 38
+[05:56:53] total violations: 31
+[05:56:53] steps sampled: 9627
+[05:56:53] collect return: -1618.74
+[05:56:53] collect return (+bonus): -1618.74
+[05:56:53] collect length: 1000
+[05:56:53] collect safe: True
+[05:56:53] eval return mean: -1166.92
+[05:56:53] eval return std: 75.31
+[05:56:53] eval length mean: 1000.00
+[05:56:53] eval length std: 0.00
+[05:56:53] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-38.h5py
+[05:57:03] Fitting models @ t = 9750
+[05:57:09] Loss statistics:
+[05:57:09] 	First 10: -140.69544830322266
+[05:57:09] 	Last 10: -148.8356185913086
+[05:57:09] 	Deciles: tensor([-151.3278, -148.6643, -148.0721, -147.6143, -147.2223, -146.8267,
+        -146.3757, -145.9478, -145.3687, -144.5131, -137.7683])
+[05:57:09] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:57:29] Model 1 error deciles: tensor([0.0720, 0.2382, 0.3696, 0.4938, 0.6303, 0.8106, 1.0325, 1.3262, 1.7032,
+        2.4722, 9.3201])
+[05:57:29] Model 2 error deciles: tensor([0.0695, 0.2365, 0.3637, 0.4921, 0.6381, 0.8204, 1.0449, 1.3312, 1.7411,
+        2.5173, 9.8395])
+[05:57:29] Model 3 error deciles: tensor([0.0635, 0.2218, 0.3527, 0.4747, 0.6129, 0.7929, 1.0303, 1.3332, 1.7593,
+        2.5631, 9.0915])
+[05:57:29] Model 4 error deciles: tensor([0.0685, 0.2310, 0.3630, 0.4904, 0.6279, 0.8106, 1.0319, 1.3135, 1.6998,
+        2.4695, 9.1315])
+[05:57:29] Model 5 error deciles: tensor([0.0677, 0.2347, 0.3660, 0.4949, 0.6356, 0.8248, 1.0463, 1.3405, 1.7574,
+        2.5414, 9.4330])
+[05:57:29] Average recent critic loss: 244.25999450683594
+[05:57:29] Buffer sizes:
+[05:57:29] 	Real: 10000
+[05:57:29] 	Virtual: 1000000
+[05:57:29] Average Q real (done): -605.9052124023438
+[05:57:29] Average Q real (~done): -204.22389221191406
+[05:57:29] Average Q virtual (done): -501.771728515625
+[05:57:29] Average Q virtual (~done): -196.3432159423828
+[05:57:29] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[05:57:36] Beginning epoch 6
+[05:57:36] Fitting models @ t = 10000
+[05:57:41] Loss statistics:
+[05:57:41] 	First 10: -137.46035919189453
+[05:57:41] 	Last 10: -148.65983123779296
+[05:57:41] 	Deciles: tensor([-153.6649, -150.8544, -150.2401, -149.7609, -149.3403, -148.8956,
+        -148.4885, -148.0067, -147.4249, -146.6444, -130.2277])
+[05:57:41] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:58:01] Fitting models @ t = 10250
+[05:58:06] Loss statistics:
+[05:58:06] 	First 10: -144.1024185180664
+[05:58:06] 	Last 10: -147.95783538818358
+[05:58:06] 	Deciles: tensor([-156.0300, -152.8574, -152.1543, -151.6240, -151.1829, -150.7221,
+        -150.2410, -149.7260, -149.0637, -147.8944, -137.5507])
+[05:58:06] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:58:26] Fitting models @ t = 10500
+[05:58:32] Loss statistics:
+[05:58:32] 	First 10: -144.11395568847655
+[05:58:32] 	Last 10: -152.8658187866211
+[05:58:32] 	Deciles: tensor([-158.6551, -154.9175, -154.1778, -153.6064, -153.0932, -152.6247,
+        -152.1114, -151.5468, -150.8383, -149.8233, -136.7620])
+[05:58:32] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:58:49] episodes sampled: 39
+[05:58:49] total violations: 31
+[05:58:49] steps sampled: 10627
+[05:58:49] collect return: -1345.61
+[05:58:49] collect return (+bonus): -1345.61
+[05:58:49] collect length: 1000
+[05:58:49] collect safe: True
+[05:58:49] eval return mean: -1078.66
+[05:58:49] eval return std: 21.14
+[05:58:49] eval length mean: 1000.00
+[05:58:49] eval length std: 0.00
+[05:58:49] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-39.h5py
+[05:58:58] Fitting models @ t = 10750
+[05:59:04] Loss statistics:
+[05:59:04] 	First 10: -149.12840576171874
+[05:59:04] 	Last 10: -153.91249084472656
+[05:59:04] 	Deciles: tensor([-160.0196, -156.4458, -155.6437, -155.0045, -154.5055, -153.9839,
+        -153.3647, -152.7544, -151.9841, -150.5622, -139.5775])
+[05:59:04] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:59:24] Model 1 error deciles: tensor([0.0377, 0.1272, 0.2834, 0.4195, 0.5696, 0.7506, 0.9778, 1.2759, 1.6703,
+        2.4653, 9.7099])
+[05:59:24] Model 2 error deciles: tensor([0.0413, 0.1319, 0.2857, 0.4267, 0.5782, 0.7721, 1.0049, 1.2907, 1.7078,
+        2.4556, 9.9132])
+[05:59:24] Model 3 error deciles: tensor([0.0344, 0.1216, 0.2727, 0.4061, 0.5497, 0.7321, 0.9659, 1.2794, 1.7011,
+        2.4938, 9.0595])
+[05:59:24] Model 4 error deciles: tensor([0.0571, 0.1372, 0.2861, 0.4289, 0.5774, 0.7527, 0.9925, 1.2907, 1.6731,
+        2.4476, 9.1799])
+[05:59:24] Model 5 error deciles: tensor([0.0368, 0.1336, 0.2867, 0.4215, 0.5675, 0.7525, 0.9909, 1.2887, 1.7160,
+        2.4862, 9.6561])
+[05:59:24] Average recent critic loss: 173.0021209716797
+[05:59:24] Buffer sizes:
+[05:59:24] 	Real: 11000
+[05:59:24] 	Virtual: 1000000
+[05:59:24] Average Q real (done): -607.9915161132812
+[05:59:24] Average Q real (~done): -186.42178344726562
+[05:59:24] Average Q virtual (done): -472.04766845703125
+[05:59:24] Average Q virtual (~done): -180.1431121826172
+[05:59:24] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[05:59:31] Beginning epoch 7
+[05:59:31] Fitting models @ t = 11000
+[05:59:37] Loss statistics:
+[05:59:37] 	First 10: -148.01181335449218
+[05:59:37] 	Last 10: -153.18475952148438
+[05:59:37] 	Deciles: tensor([-162.0923, -157.8811, -157.0657, -156.4234, -155.8978, -155.2872,
+        -154.6244, -153.9683, -153.1402, -151.7834, -134.9638])
+[05:59:37] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[05:59:57] Fitting models @ t = 11250
+[06:00:02] Loss statistics:
+[06:00:02] 	First 10: -147.01404876708983
+[06:00:02] 	Last 10: -154.93206024169922
+[06:00:02] 	Deciles: tensor([-163.9145, -159.5615, -158.6717, -157.8543, -157.2621, -156.6257,
+        -155.9836, -155.2712, -154.3841, -153.1219, -139.7733])
+[06:00:02] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:00:22] Fitting models @ t = 11500
+[06:00:27] Loss statistics:
+[06:00:27] 	First 10: -150.93409271240233
+[06:00:27] 	Last 10: -154.23253173828124
+[06:00:27] 	Deciles: tensor([-163.6884, -160.1087, -159.1584, -158.3936, -157.6941, -156.9843,
+        -156.2240, -155.3866, -154.3484, -152.7963, -139.7440])
+[06:00:27] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:00:44] episodes sampled: 40
+[06:00:44] total violations: 31
+[06:00:44] steps sampled: 11627
+[06:00:44] collect return: -1080.37
+[06:00:44] collect return (+bonus): -1080.37
+[06:00:44] collect length: 1000
+[06:00:44] collect safe: True
+[06:00:44] eval return mean: -1064.96
+[06:00:44] eval return std: 77.23
+[06:00:44] eval length mean: 1000.00
+[06:00:44] eval length std: 0.00
+[06:00:44] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-40.h5py
+[06:00:54] Fitting models @ t = 11750
+[06:00:59] Loss statistics:
+[06:00:59] 	First 10: -150.31289825439453
+[06:00:59] 	Last 10: -161.25940399169923
+[06:00:59] 	Deciles: tensor([-166.0256, -162.1339, -161.1487, -160.3059, -159.5698, -158.9187,
+        -158.1590, -157.3779, -156.3188, -154.5162, -142.1131])
+[06:00:59] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:01:20] Model 1 error deciles: tensor([0.0350, 0.1047, 0.2543, 0.3908, 0.5318, 0.7054, 0.9299, 1.2196, 1.6240,
+        2.4049, 9.9495])
+[06:01:20] Model 2 error deciles: tensor([ 0.0273,  0.0967,  0.2495,  0.3812,  0.5322,  0.7189,  0.9505,  1.2486,
+         1.6711,  2.4384, 10.4302])
+[06:01:20] Model 3 error deciles: tensor([0.0290, 0.1067, 0.2405, 0.3696, 0.5184, 0.6920, 0.9317, 1.2290, 1.6390,
+        2.4147, 9.3731])
+[06:01:20] Model 4 error deciles: tensor([0.0410, 0.1135, 0.2535, 0.3867, 0.5342, 0.7084, 0.9344, 1.2319, 1.6324,
+        2.4144, 9.3231])
+[06:01:20] Model 5 error deciles: tensor([0.0210, 0.1023, 0.2540, 0.3919, 0.5354, 0.7179, 0.9504, 1.2496, 1.6578,
+        2.4333, 9.9830])
+[06:01:20] Average recent critic loss: 118.29368591308594
+[06:01:20] Buffer sizes:
+[06:01:20] 	Real: 12000
+[06:01:20] 	Virtual: 1000000
+[06:01:20] Average Q real (done): -636.6362915039062
+[06:01:20] Average Q real (~done): -169.65402221679688
+[06:01:20] Average Q virtual (done): -489.6629638671875
+[06:01:20] Average Q virtual (~done): -163.87559509277344
+[06:01:20] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[06:01:27] Beginning epoch 8
+[06:01:27] Fitting models @ t = 12000
+[06:01:32] Loss statistics:
+[06:01:32] 	First 10: -150.38150939941406
+[06:01:32] 	Last 10: -159.7252975463867
+[06:01:32] 	Deciles: tensor([-169.2276, -164.4886, -163.5410, -162.7554, -162.0499, -161.4220,
+        -160.6718, -159.8576, -158.7504, -156.8546, -139.7950])
+[06:01:32] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:01:52] Fitting models @ t = 12250
+[06:01:58] Loss statistics:
+[06:01:58] 	First 10: -144.1041259765625
+[06:01:58] 	Last 10: -162.79206237792968
+[06:01:58] 	Deciles: tensor([-170.7366, -166.4210, -165.2093, -164.3659, -163.5445, -162.6922,
+        -161.9328, -160.8821, -159.7482, -158.1715, -136.7394])
+[06:01:58] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:02:18] Fitting models @ t = 12500
+[06:02:23] Loss statistics:
+[06:02:23] 	First 10: -153.17493438720703
+[06:02:23] 	Last 10: -167.73313903808594
+[06:02:23] 	Deciles: tensor([-173.4563, -168.8596, -167.8077, -166.9622, -166.3365, -165.6622,
+        -164.9426, -164.1078, -163.1519, -161.5184, -145.0397])
+[06:02:23] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:02:41] episodes sampled: 41
+[06:02:41] total violations: 31
+[06:02:41] steps sampled: 12627
+[06:02:41] collect return: -744.59
+[06:02:41] collect return (+bonus): -744.59
+[06:02:41] collect length: 1000
+[06:02:41] collect safe: True
+[06:02:41] eval return mean: -521.53
+[06:02:41] eval return std: 16.01
+[06:02:41] eval length mean: 1000.00
+[06:02:41] eval length std: 0.00
+[06:02:41] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-41.h5py
+[06:02:50] Fitting models @ t = 12750
+[06:02:56] Loss statistics:
+[06:02:56] 	First 10: -152.425439453125
+[06:02:56] 	Last 10: -165.44928436279298
+[06:02:56] 	Deciles: tensor([-175.1750, -171.4099, -170.2333, -169.3764, -168.5660, -167.8550,
+        -167.0058, -166.0122, -164.9490, -162.9626, -139.3583])
+[06:02:56] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:03:16] Model 1 error deciles: tensor([ 0.0447,  0.1119,  0.2457,  0.3727,  0.5146,  0.6893,  0.9151,  1.2225,
+         1.6237,  2.3973, 10.4327])
+[06:03:16] Model 2 error deciles: tensor([ 0.0142,  0.0873,  0.2331,  0.3561,  0.4972,  0.6708,  0.9161,  1.2192,
+         1.6331,  2.3829, 10.5636])
+[06:03:16] Model 3 error deciles: tensor([0.0398, 0.1153, 0.2387, 0.3565, 0.4968, 0.6708, 0.8948, 1.1909, 1.6110,
+        2.3844, 9.5778])
+[06:03:16] Model 4 error deciles: tensor([0.0355, 0.1009, 0.2321, 0.3558, 0.4912, 0.6651, 0.8847, 1.1833, 1.5820,
+        2.3722, 9.4508])
+[06:03:16] Model 5 error deciles: tensor([0.0320, 0.0958, 0.2387, 0.3713, 0.5204, 0.6988, 0.9295, 1.2382, 1.6414,
+        2.3744, 9.8424])
+[06:03:16] Average recent critic loss: 104.78803253173828
+[06:03:16] Buffer sizes:
+[06:03:16] 	Real: 13000
+[06:03:16] 	Virtual: 1000000
+[06:03:16] Average Q real (done): -647.020263671875
+[06:03:16] Average Q real (~done): -150.50717163085938
+[06:03:16] Average Q virtual (done): -497.0187683105469
+[06:03:16] Average Q virtual (~done): -145.24058532714844
+[06:03:16] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[06:03:23] Beginning epoch 9
+[06:03:23] Fitting models @ t = 13000
+[06:03:28] Loss statistics:
+[06:03:28] 	First 10: -161.28621520996094
+[06:03:28] 	Last 10: -167.55329437255858
+[06:03:28] 	Deciles: tensor([-179.7131, -173.3317, -172.2884, -171.3320, -170.4258, -169.5692,
+        -168.7356, -167.6180, -166.1737, -163.9749, -145.4489])
+[06:03:28] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:03:48] Fitting models @ t = 13250
+[06:03:54] Loss statistics:
+[06:03:54] 	First 10: -161.98926391601563
+[06:03:54] 	Last 10: -171.48967437744142
+[06:03:54] 	Deciles: tensor([-182.0330, -175.3204, -173.9512, -172.9250, -172.0423, -171.1964,
+        -170.3542, -169.4223, -168.2653, -165.9832, -146.8557])
+[06:03:54] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:04:14] Fitting models @ t = 13500
+[06:04:19] Loss statistics:
+[06:04:19] 	First 10: -165.07648620605468
+[06:04:19] 	Last 10: -173.22373809814454
+[06:04:19] 	Deciles: tensor([-181.0635, -176.1450, -174.8841, -173.8347, -172.9184, -172.0912,
+        -171.0697, -169.9702, -168.4229, -166.4805, -144.9939])
+[06:04:19] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:04:36] episodes sampled: 42
+[06:04:36] total violations: 31
+[06:04:36] steps sampled: 13627
+[06:04:36] collect return: -990.96
+[06:04:36] collect return (+bonus): -990.96
+[06:04:36] collect length: 1000
+[06:04:36] collect safe: True
+[06:04:36] eval return mean: -679.61
+[06:04:36] eval return std: 20.70
+[06:04:36] eval length mean: 1000.00
+[06:04:36] eval length std: 0.00
+[06:04:36] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-42.h5py
+[06:04:46] Fitting models @ t = 13750
+[06:04:51] Loss statistics:
+[06:04:51] 	First 10: -164.07947540283203
+[06:04:51] 	Last 10: -175.15458984375
+[06:04:51] 	Deciles: tensor([-182.7379, -178.2245, -177.0685, -176.0010, -175.0264, -174.0157,
+        -172.9644, -171.6382, -169.9469, -167.1053, -121.9681])
+[06:04:51] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:05:11] Model 1 error deciles: tensor([0.0217, 0.0940, 0.2292, 0.3461, 0.4900, 0.6642, 0.8906, 1.1871, 1.6025,
+        2.3654, 9.8408])
+[06:05:11] Model 2 error deciles: tensor([ 0.0199,  0.0996,  0.2296,  0.3514,  0.4896,  0.6581,  0.8883,  1.1871,
+         1.6042,  2.3712, 10.7380])
+[06:05:11] Model 3 error deciles: tensor([0.0230, 0.0929, 0.2135, 0.3225, 0.4559, 0.6209, 0.8371, 1.1272, 1.5347,
+        2.2716, 9.4675])
+[06:05:11] Model 4 error deciles: tensor([0.0176, 0.0920, 0.2237, 0.3400, 0.4718, 0.6450, 0.8672, 1.1603, 1.5650,
+        2.3179, 9.6825])
+[06:05:11] Model 5 error deciles: tensor([ 0.0174,  0.0916,  0.2272,  0.3541,  0.4922,  0.6740,  0.8995,  1.1982,
+         1.6158,  2.3706, 10.3295])
+[06:05:11] Average recent critic loss: 103.6040267944336
+[06:05:11] Buffer sizes:
+[06:05:11] 	Real: 14000
+[06:05:11] 	Virtual: 1000000
+[06:05:11] Average Q real (done): -620.445068359375
+[06:05:11] Average Q real (~done): -134.30386352539062
+[06:05:11] Average Q virtual (done): -475.3759765625
+[06:05:12] Average Q virtual (~done): -128.86068725585938
+[06:05:12] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[06:05:19] Beginning epoch 10
+[06:05:19] Fitting models @ t = 14000
+[06:05:24] Loss statistics:
+[06:05:24] 	First 10: -170.87932891845702
+[06:05:24] 	Last 10: -179.83930511474608
+[06:05:24] 	Deciles: tensor([-185.0599, -180.7278, -179.5567, -178.6116, -177.7845, -176.8535,
+        -175.9718, -174.7857, -173.4622, -171.2010, -150.3493])
+[06:05:24] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:05:44] Fitting models @ t = 14250
+[06:05:49] Loss statistics:
+[06:05:49] 	First 10: -165.73617248535157
+[06:05:49] 	Last 10: -180.25491333007812
+[06:05:49] 	Deciles: tensor([-187.5796, -182.1205, -180.9014, -179.8842, -178.9940, -177.9934,
+        -177.0566, -175.9599, -174.5784, -172.0576, -142.1929])
+[06:05:49] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:06:09] Fitting models @ t = 14500
+[06:06:14] Loss statistics:
+[06:06:14] 	First 10: -171.23477478027343
+[06:06:14] 	Last 10: -181.00868530273436
+[06:06:14] 	Deciles: tensor([-188.9185, -184.1116, -182.8480, -181.8448, -180.7333, -179.7690,
+        -178.7646, -177.4586, -175.8330, -173.4067, -146.1101])
+[06:06:14] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:06:31] episodes sampled: 43
+[06:06:31] total violations: 31
+[06:06:31] steps sampled: 14627
+[06:06:31] collect return: -639.64
+[06:06:31] collect return (+bonus): -639.64
+[06:06:31] collect length: 1000
+[06:06:31] collect safe: True
+[06:06:31] eval return mean: -831.07
+[06:06:31] eval return std: 62.84
+[06:06:31] eval length mean: 1000.00
+[06:06:31] eval length std: 0.00
+[06:06:31] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-43.h5py
+[06:06:41] Fitting models @ t = 14750
+[06:06:46] Loss statistics:
+[06:06:46] 	First 10: -171.02264709472655
+[06:06:46] 	Last 10: -173.43689880371093
+[06:06:46] 	Deciles: tensor([-190.5985, -186.0563, -184.9250, -184.0303, -183.1243, -182.2612,
+        -181.3582, -180.2114, -178.6454, -176.4114, -158.3276])
+[06:06:46] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:07:06] Model 1 error deciles: tensor([0.1038, 0.2154, 0.2799, 0.3826, 0.5002, 0.6660, 0.8848, 1.2085, 1.6284,
+        2.3913, 9.9227])
+[06:07:06] Model 2 error deciles: tensor([ 0.0219,  0.0938,  0.2191,  0.3277,  0.4561,  0.6075,  0.8273,  1.1235,
+         1.5458,  2.3388, 10.2339])
+[06:07:06] Model 3 error deciles: tensor([0.0581, 0.1296, 0.2360, 0.3413, 0.4697, 0.6316, 0.8476, 1.1443, 1.5640,
+        2.3518, 9.6921])
+[06:07:06] Model 4 error deciles: tensor([0.0229, 0.1001, 0.2187, 0.3290, 0.4522, 0.6121, 0.8300, 1.1272, 1.5511,
+        2.3127, 9.9051])
+[06:07:06] Model 5 error deciles: tensor([ 0.0225,  0.1111,  0.2403,  0.3574,  0.4863,  0.6470,  0.8657,  1.1589,
+         1.5778,  2.3337, 10.2936])
+[06:07:06] Average recent critic loss: 103.74395751953125
+[06:07:06] Buffer sizes:
+[06:07:06] 	Real: 15000
+[06:07:06] 	Virtual: 1000000
+[06:07:07] Average Q real (done): -667.5220336914062
+[06:07:07] Average Q real (~done): -124.33440399169922
+[06:07:07] Average Q virtual (done): -484.7098693847656
+[06:07:07] Average Q virtual (~done): -118.58983612060547
+[06:07:07] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[06:07:14] Beginning epoch 11
+[06:07:14] Fitting models @ t = 15000
+[06:07:19] Loss statistics:
+[06:07:19] 	First 10: -169.02339935302734
+[06:07:19] 	Last 10: -184.8306900024414
+[06:07:19] 	Deciles: tensor([-194.0770, -188.0749, -186.7940, -185.7577, -184.8174, -184.0382,
+        -183.1747, -182.1119, -180.6659, -178.0466, -148.7348])
+[06:07:19] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:07:39] Fitting models @ t = 15250
+[06:07:44] Loss statistics:
+[06:07:44] 	First 10: -167.84176177978514
+[06:07:44] 	Last 10: -183.88028259277343
+[06:07:44] 	Deciles: tensor([-194.6695, -189.3013, -187.8546, -186.6828, -185.6484, -184.6865,
+        -183.7603, -182.4213, -180.7393, -178.2205, -144.3689])
+[06:07:44] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:08:04] Fitting models @ t = 15500
+[06:08:10] Loss statistics:
+[06:08:10] 	First 10: -169.93004455566407
+[06:08:10] 	Last 10: -187.66520080566406
+[06:08:10] 	Deciles: tensor([-196.9011, -191.6289, -190.4598, -189.5096, -188.6613, -187.8293,
+        -186.9210, -185.8082, -184.4746, -182.1376, -152.2597])
+[06:08:10] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:08:27] episodes sampled: 44
+[06:08:27] total violations: 31
+[06:08:27] steps sampled: 15627
+[06:08:27] collect return: -639.54
+[06:08:27] collect return (+bonus): -639.54
+[06:08:27] collect length: 1000
+[06:08:27] collect safe: True
+[06:08:27] eval return mean: -560.53
+[06:08:27] eval return std: 7.51
+[06:08:27] eval length mean: 1000.00
+[06:08:27] eval length std: 0.00
+[06:08:27] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-44.h5py
+[06:08:37] Fitting models @ t = 15750
+[06:08:42] Loss statistics:
+[06:08:42] 	First 10: -173.22572326660156
+[06:08:42] 	Last 10: -189.4771926879883
+[06:08:42] 	Deciles: tensor([-199.7175, -193.1255, -191.8743, -190.8793, -189.9667, -189.0711,
+        -188.0769, -186.9240, -185.0487, -182.0632, -148.2984])
+[06:08:42] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:09:02] Model 1 error deciles: tensor([ 0.0232,  0.0959,  0.2092,  0.3117,  0.4253,  0.5753,  0.7854,  1.0935,
+         1.5224,  2.3072, 10.3948])
+[06:09:02] Model 2 error deciles: tensor([ 0.0107,  0.0968,  0.2177,  0.3181,  0.4321,  0.5752,  0.7809,  1.0895,
+         1.5286,  2.2823, 10.4361])
+[06:09:02] Model 3 error deciles: tensor([0.0129, 0.0909, 0.2024, 0.2978, 0.4095, 0.5506, 0.7444, 1.0503, 1.4615,
+        2.2693, 9.7514])
+[06:09:02] Model 4 error deciles: tensor([0.0103, 0.0898, 0.2040, 0.3071, 0.4166, 0.5645, 0.7768, 1.0821, 1.5245,
+        2.2970, 9.7188])
+[06:09:02] Model 5 error deciles: tensor([ 0.0134,  0.1039,  0.2199,  0.3292,  0.4471,  0.5923,  0.7927,  1.0802,
+         1.5093,  2.3184, 10.1560])
+[06:09:02] Average recent critic loss: 93.57916259765625
+[06:09:02] Buffer sizes:
+[06:09:02] 	Real: 16000
+[06:09:02] 	Virtual: 1000000
+[06:09:02] Average Q real (done): -629.6646728515625
+[06:09:02] Average Q real (~done): -117.58907318115234
+[06:09:02] Average Q virtual (done): -468.46759033203125
+[06:09:03] Average Q virtual (~done): -112.7867202758789
+[06:09:03] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '810 MB', 'reserved but unallocated': '3 GB'}
+[06:09:09] Beginning epoch 12
+[06:09:09] Fitting models @ t = 16000
+[06:09:15] Loss statistics:
+[06:09:15] 	First 10: -184.75359039306642
+[06:09:15] 	Last 10: -174.1121826171875
+[06:09:15] 	Deciles: tensor([-198.2950, -194.3649, -193.1074, -192.0501, -191.0380, -190.0796,
+        -189.0880, -187.9726, -186.4724, -184.1466, -161.9383])
+[06:09:15] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:09:35] Fitting models @ t = 16250
+[06:09:40] Loss statistics:
+[06:09:40] 	First 10: -168.84900360107423
+[06:09:40] 	Last 10: -194.50323791503905
+[06:09:40] 	Deciles: tensor([-200.8896, -195.2051, -193.6470, -192.6233, -191.6927, -190.7012,
+        -189.4521, -188.2201, -186.4989, -183.6724, -158.8535])
+[06:09:40] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:10:00] Fitting models @ t = 16500
+[06:10:05] Loss statistics:
+[06:10:05] 	First 10: -179.20255432128906
+[06:10:05] 	Last 10: -194.75207977294923
+[06:10:05] 	Deciles: tensor([-202.4588, -196.4526, -195.2777, -194.2945, -193.4180, -192.4879,
+        -191.6228, -190.4967, -189.2114, -186.5789, -160.7254])
+[06:10:05] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:10:22] episodes sampled: 45
+[06:10:22] total violations: 31
+[06:10:22] steps sampled: 16627
+[06:10:22] collect return: -497.17
+[06:10:22] collect return (+bonus): -497.17
+[06:10:22] collect length: 1000
+[06:10:22] collect safe: True
+[06:10:22] eval return mean: -527.82
+[06:10:22] eval return std: 21.81
+[06:10:22] eval length mean: 1000.00
+[06:10:22] eval length std: 0.00
+[06:10:22] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-45.h5py
+[06:10:32] Fitting models @ t = 16750
+[06:10:37] Loss statistics:
+[06:10:37] 	First 10: -190.3574447631836
+[06:10:37] 	Last 10: -190.2287582397461
+[06:10:37] 	Deciles: tensor([-204.8989, -197.8643, -196.4698, -195.5131, -194.5255, -193.6336,
+        -192.2320, -190.8248, -189.3323, -186.4528, -165.2401])
+[06:10:37] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:10:57] Model 1 error deciles: tensor([ 0.0216,  0.0993,  0.2148,  0.3141,  0.4220,  0.5566,  0.7541,  1.0502,
+         1.4852,  2.2748, 10.5387])
+[06:10:57] Model 2 error deciles: tensor([0.0101, 0.1006, 0.2120, 0.3074, 0.4136, 0.5498, 0.7475, 1.0532, 1.4848,
+        2.2893, 9.6395])
+[06:10:57] Model 3 error deciles: tensor([6.3851e-03, 9.4138e-02, 2.0234e-01, 2.9426e-01, 3.9717e-01, 5.2926e-01,
+        7.1328e-01, 1.0066e+00, 1.4158e+00, 2.2362e+00, 9.8956e+00])
+[06:10:57] Model 4 error deciles: tensor([ 0.0341,  0.1215,  0.2325,  0.3332,  0.4452,  0.5881,  0.7986,  1.1109,
+         1.5601,  2.3269, 10.3739])
+[06:10:57] Model 5 error deciles: tensor([ 0.0103,  0.1020,  0.2177,  0.3211,  0.4371,  0.5773,  0.7756,  1.0638,
+         1.4879,  2.2980, 10.0920])
+[06:10:57] Average recent critic loss: 81.1513442993164
+[06:10:57] Buffer sizes:
+[06:10:57] 	Real: 17000
+[06:10:57] 	Virtual: 1000000
+[06:10:57] Average Q real (done): -615.6071166992188
+[06:10:57] Average Q real (~done): -109.80166625976562
+[06:10:57] Average Q virtual (done): -453.4857482910156
+[06:10:58] Average Q virtual (~done): -105.80802917480469
+[06:10:58] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '811 MB', 'reserved but unallocated': '3 GB'}
+[06:11:05] Beginning epoch 13
+[06:11:05] Fitting models @ t = 17000
+[06:11:10] Loss statistics:
+[06:11:10] 	First 10: -182.5728958129883
+[06:11:10] 	Last 10: -197.47264709472657
+[06:11:10] 	Deciles: tensor([-203.8849, -198.2740, -196.8849, -195.7415, -194.7480, -193.7941,
+        -192.6069, -191.1722, -189.1085, -185.1478, -153.2757])
+[06:11:10] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:11:30] Fitting models @ t = 17250
+[06:11:35] Loss statistics:
+[06:11:35] 	First 10: -188.82108612060546
+[06:11:35] 	Last 10: -193.43450317382812
+[06:11:35] 	Deciles: tensor([-205.6239, -198.7726, -197.0325, -195.7715, -194.6902, -193.5629,
+        -192.1982, -190.5477, -188.3262, -184.5909, -143.7097])
+[06:11:35] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:11:56] Fitting models @ t = 17500
+[06:12:01] Loss statistics:
+[06:12:01] 	First 10: -187.9745849609375
+[06:12:01] 	Last 10: -192.52684783935547
+[06:12:01] 	Deciles: tensor([-204.9929, -200.6381, -199.2093, -198.3107, -197.4984, -196.4781,
+        -195.3329, -194.1157, -192.3529, -189.0600, -138.6097])
+[06:12:01] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:12:18] episodes sampled: 46
+[06:12:18] total violations: 31
+[06:12:18] steps sampled: 17627
+[06:12:18] collect return: -531.53
+[06:12:18] collect return (+bonus): -531.53
+[06:12:18] collect length: 1000
+[06:12:18] collect safe: True
+[06:12:18] eval return mean: -454.86
+[06:12:18] eval return std: 16.11
+[06:12:18] eval length mean: 1000.00
+[06:12:18] eval length std: 0.00
+[06:12:18] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-46.h5py
+[06:12:28] Fitting models @ t = 17750
+[06:12:34] Loss statistics:
+[06:12:34] 	First 10: -185.87078399658202
+[06:12:34] 	Last 10: -194.23839874267577
+[06:12:34] 	Deciles: tensor([-206.6822, -201.2911, -199.8810, -198.8710, -197.8574, -196.9673,
+        -195.8161, -194.3474, -192.9262, -189.9190, -168.9010])
+[06:12:34] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:12:55] Model 1 error deciles: tensor([ 0.0250,  0.1050,  0.2128,  0.3075,  0.4101,  0.5359,  0.7237,  1.0045,
+         1.4527,  2.2613, 10.6670])
+[06:12:55] Model 2 error deciles: tensor([ 0.0208,  0.1074,  0.2122,  0.3027,  0.4073,  0.5398,  0.7243,  1.0209,
+         1.4884,  2.2826, 10.2097])
+[06:12:55] Model 3 error deciles: tensor([ 0.0556,  0.1337,  0.2258,  0.3156,  0.4114,  0.5356,  0.7123,  0.9947,
+         1.4312,  2.2451, 10.0493])
+[06:12:55] Model 4 error deciles: tensor([ 0.0171,  0.1005,  0.2062,  0.2979,  0.4006,  0.5318,  0.7205,  1.0118,
+         1.4789,  2.2819, 10.1999])
+[06:12:55] Model 5 error deciles: tensor([0.0179, 0.1118, 0.2189, 0.3160, 0.4184, 0.5425, 0.7279, 1.0062, 1.4310,
+        2.2354, 9.5200])
+[06:12:55] Average recent critic loss: 89.07734680175781
+[06:12:55] Buffer sizes:
+[06:12:55] 	Real: 18000
+[06:12:55] 	Virtual: 1000000
+[06:12:55] Average Q real (done): -659.8970336914062
+[06:12:55] Average Q real (~done): -103.8878173828125
+[06:12:55] Average Q virtual (done): -511.5604553222656
+[06:12:55] Average Q virtual (~done): -99.06170654296875
+[06:12:55] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '811 MB', 'reserved but unallocated': '3 GB'}
+[06:13:02] Beginning epoch 14
+[06:13:02] Fitting models @ t = 18000
+[06:13:07] Loss statistics:
+[06:13:07] 	First 10: -188.0640609741211
+[06:13:07] 	Last 10: -200.02483367919922
+[06:13:07] 	Deciles: tensor([-208.2983, -203.1714, -201.8915, -200.8600, -199.8853, -198.9753,
+        -197.9068, -196.7288, -194.9445, -191.8239, -146.6538])
+[06:13:07] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:13:27] Fitting models @ t = 18250
+[06:13:33] Loss statistics:
+[06:13:33] 	First 10: -195.46199798583984
+[06:13:33] 	Last 10: -202.83102416992188
+[06:13:33] 	Deciles: tensor([-210.6339, -204.5844, -203.4411, -202.3585, -201.5317, -200.6037,
+        -199.6595, -198.5780, -197.1859, -195.0945, -167.8658])
+[06:13:33] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:13:53] Fitting models @ t = 18500
+[06:13:59] Loss statistics:
+[06:13:59] 	First 10: -191.6438430786133
+[06:13:59] 	Last 10: -203.39576873779296
+[06:13:59] 	Deciles: tensor([-209.1072, -204.3665, -203.2423, -202.1237, -201.1617, -200.2855,
+        -199.2016, -198.0871, -196.6089, -194.1445, -177.9866])
+[06:13:59] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:14:16] episodes sampled: 47
+[06:14:16] total violations: 31
+[06:14:16] steps sampled: 18627
+[06:14:16] collect return: -460.94
+[06:14:16] collect return (+bonus): -460.94
+[06:14:16] collect length: 1000
+[06:14:16] collect safe: True
+[06:14:16] eval return mean: -391.90
+[06:14:16] eval return std: 10.08
+[06:14:16] eval length mean: 1000.00
+[06:14:16] eval length std: 0.00
+[06:14:16] Saved episode to /home/shashi/smbpo_new/smbpo/logs/ant/02-23-25_05.29.55_yhyb/episodes/episode-47.h5py
+[06:14:26] Fitting models @ t = 18750
+[06:14:32] Loss statistics:
+[06:14:32] 	First 10: -199.32876281738282
+[06:14:32] 	Last 10: -198.20311279296874
+[06:14:32] 	Deciles: tensor([-210.6904, -205.1835, -203.5815, -202.3620, -201.3954, -200.4949,
+        -199.4823, -198.2368, -196.4414, -193.1890, -145.5141])
+[06:14:32] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:14:52] Model 1 error deciles: tensor([ 0.0174,  0.1067,  0.2112,  0.3032,  0.4029,  0.5232,  0.6995,  0.9741,
+         1.4239,  2.2288, 10.7352])
+[06:14:52] Model 2 error deciles: tensor([ 0.0171,  0.1109,  0.2197,  0.3116,  0.4101,  0.5375,  0.7158,  0.9934,
+         1.4613,  2.2957, 10.2128])
+[06:14:52] Model 3 error deciles: tensor([7.8092e-03, 9.9485e-02, 2.0127e-01, 2.9031e-01, 3.8418e-01, 5.0251e-01,
+        6.6414e-01, 9.2574e-01, 1.3516e+00, 2.1570e+00, 1.0236e+01])
+[06:14:52] Model 4 error deciles: tensor([ 0.0168,  0.1187,  0.2233,  0.3167,  0.4190,  0.5526,  0.7383,  1.0382,
+         1.5210,  2.3387, 10.7340])
+[06:14:52] Model 5 error deciles: tensor([8.2133e-03, 1.0917e-01, 2.1680e-01, 3.0798e-01, 4.0776e-01, 5.2756e-01,
+        7.0107e-01, 9.6552e-01, 1.3918e+00, 2.1963e+00, 9.8294e+00])
+[06:14:52] Average recent critic loss: 77.68389892578125
+[06:14:52] Buffer sizes:
+[06:14:52] 	Real: 19000
+[06:14:52] 	Virtual: 1000000
+[06:14:52] Average Q real (done): -613.359375
+[06:14:52] Average Q real (~done): -99.12452697753906
+[06:14:52] Average Q virtual (done): -465.61376953125
+[06:14:53] Average Q virtual (~done): -94.86607360839844
+[06:14:53] GPU memory info: {'total': '42 GB', 'reserved': '4 GB', 'allocated': '811 MB', 'reserved but unallocated': '3 GB'}
+[06:14:59] Beginning epoch 15
+[06:14:59] Fitting models @ t = 19000
+[06:15:05] Loss statistics:
+[06:15:05] 	First 10: -197.08751068115234
+[06:15:05] 	Last 10: -203.42815856933595
+[06:15:05] 	Deciles: tensor([-212.6098, -206.6216, -205.4196, -204.3461, -203.3575, -202.3499,
+        -201.2943, -199.9260, -198.0893, -195.3922, -169.0211])
+[06:15:05] r bounds: [(-5.568338871002197, 1.4149783849716187)], C = 6.306666535849962
+[06:15:26] Fitting models @ t = 19250

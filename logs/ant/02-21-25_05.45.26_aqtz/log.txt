@@ -1,0 +1,3 @@
+[05:45:26] Log directory: /home/shashi/smbpo/logs/ant/02-21-25_05.45.26_aqtz
+[05:45:28] Data load failed
+[05:45:28] Collecting initial data

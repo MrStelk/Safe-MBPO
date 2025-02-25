@@ -1,0 +1,53 @@
+{
+  "alg_cfg": {
+    "action_clip_gap": 1e-06,
+    "alive_bonus": 0.0,
+    "buffer_max": 1000000,
+    "buffer_min": 5000,
+    "horizon": 10,
+    "model_cfg": {
+      "activation": "relu",
+      "batch_size": 256,
+      "ensemble_size": 5,
+      "head_hidden_layers": 1,
+      "hidden_dim": 200,
+      "init_max_log_var": 1.0,
+      "init_min_log_var": -10.0,
+      "learning_rate": 0.001,
+      "log_var_bound_weight": 0.01,
+      "trunk_layers": 2
+    },
+    "model_initial_steps": 10000,
+    "model_steps": 2000,
+    "model_update_period": 250,
+    "real_fraction": 0.1,
+    "rollout_batch_size": 100,
+    "sac_cfg": {
+      "actor_lr": 0.0003,
+      "autotune_alpha": true,
+      "batch_size": 256,
+      "critic_cfg": {
+        "hidden_dim": 256,
+        "hidden_layers": 2,
+        "learning_rate": 0.0003,
+        "n_critics": 2
+      },
+      "critic_update_multiplier": 1,
+      "deterministic_backup": false,
+      "discount": 0.99,
+      "hidden_dim": 256,
+      "hidden_layers": 2,
+      "init_alpha": 1.0,
+      "target_entropy": -4.0,
+      "tau": 0.005,
+      "update_violation_cost": true,
+      "use_log_alpha_loss": true
+    },
+    "save_trajectories": true,
+    "solver_updates_per_step": 10,
+    "steps_per_epoch": 1000
+  },
+  "env_name": "ant",
+  "epochs": 1000,
+  "seed": 1
+}

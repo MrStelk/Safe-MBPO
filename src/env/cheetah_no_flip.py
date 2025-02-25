@@ -1,8 +1,22 @@
 import pdb
 
 import numpy as np
-from force.env.mujoco.half_cheetah import HalfCheetahEnv
+from gym.envs.mujoco import HalfCheetahEnv as GymHalfCheetahEnv
+from .mujoco_wrapper import MujocoWrapper
 
+class HalfCheetahEnv(GymHalfCheetahEnv, MujocoWrapper):
+    def __init__(self):
+        super().__init__()
+        self._max_episode_steps = 1000
+    @staticmethod
+    def done(states):
+        return np.zeros(len(states), dtype=bool)
+
+    def qposvel_from_obs(self, obs):
+        qpos = np.zeros(9)
+        qpos[1:] = obs[:8]
+        qvel = obs[8:]
+        return qpos, qvel
 
 class CheetahFlipTestEnv(HalfCheetahEnv):
     def check_termination(self):

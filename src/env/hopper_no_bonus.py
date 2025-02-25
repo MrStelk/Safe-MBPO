@@ -1,5 +1,5 @@
 import numpy as np
-from force.env.mujoco.hopper import HopperEnv
+from .hopper import HopperEnv
 
 
 class HopperNoBonusEnv(HopperEnv):

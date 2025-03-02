@@ -33,7 +33,7 @@ class SMBPO(Configurable, Module):
         buffer_max = 10**6
         steps_per_epoch = 1000
         rollout_batch_size = 100
-        solver_updates_per_step = 10
+        solver_updates_per_step = 10 # n_actor in algo
         real_fraction = 0.1
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
 
@@ -201,8 +201,8 @@ class SMBPO(Configurable, Module):
             solver.update_actor_and_alpha(combined_samples[0]) # Update policy
 
     def rollout_and_update(self):
-        self.rollout(self.actor) # Make samples according to actor and dynamics model.
-        for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step.
+        self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1
+        for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step. n_actor in algo
             self.update_solver()
 
     # Initial setup

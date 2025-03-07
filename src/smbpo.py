@@ -38,6 +38,7 @@ class SMBPO(Configurable, Module):
         real_fraction = 0.1
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
         rclassifier_updates_per_step = 10 # n_rclassifier
+        rclassifier_real_fraction = 0.1
 
     def __init__(self, config, env_factory, data):
         Configurable.__init__(self, config)
@@ -207,8 +208,14 @@ class SMBPO(Configurable, Module):
             solver.update_actor_and_alpha(combined_samples[0]) # Update policy
 
     def update_rclassifier(self):
-        pass
-
+        self.rclassifier.sas.train()
+        self.rclassifier.sa.train()
+        n_real = int(self.rclassifier_real_fraction * self.rclassifier.batch_size)
+        real_samples = self.replay_buffer.sample(n_real)
+        virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
+        sa_real, sa_virtual, sas_real, sas_virtual = self.parse_samples_for_rclassifier(real_samples, virt_samples)
+        losses = self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
+    
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1
         for _ in range(self.rclassifier_updates_per_step):

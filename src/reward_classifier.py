@@ -38,3 +38,40 @@ class RClassifier(nn.Module):
         super().__init__()
         self.sas = SAS(state_dim, action_dim)
         self.sa = SA(state_dim, action_dim)
+        self.batch_size = 256
+        self.optimizer_sas = torch.optim.Adam(self.sas.parameters(), lr=lr)
+        self.optimizer_sa = torch.optim.Adam(self.sa.parameters(), lr=lr)
+
+    def step(self, sa_real, sa_virtual, sas_real, sas_virtual):
+        """
+        sa_real: Tensor of real (state, action) pairs, label=1
+        sa_virtual: Tensor of virtual (state, action) pairs, label=0
+        sas_real: Tensor of real (state, action, next_state) triples, label=1
+        sas_virtual: Tensor of virtual (state, action, next_state) triples, label=0
+        """
+        # Prepare inputs and labels
+        sa_inputs = torch.cat([sa_real, sa_virtual], dim=0)
+        sa_labels = torch.cat([torch.ones(len(sa_real)), torch.zeros(len(sa_virtual))], dim=0).long()
+
+        sas_inputs = torch.cat([sas_real, sas_virtual], dim=0)
+        sas_labels = torch.cat([torch.ones(len(sas_real)), torch.zeros(len(sas_virtual))], dim=0).long()
+
+        # Forward pass
+        sa_logits = self.sa(sa_inputs)
+        sas_logits = self.sas(sas_inputs)
+
+        # Compute loss
+        loss_sa = self.criterion(sa_logits, sa_labels)
+        loss_sas = self.criterion(sas_logits, sas_labels)
+
+        # Backpropagation
+        self.optimizer_sa.zero_grad()
+        loss_sa.backward()
+        self.optimizer_sa.step()
+
+        self.optimizer_sas.zero_grad()
+        loss_sas.backward()
+        self.optimizer_sas.step()
+
+        return {"loss_sa": loss_sa.item(), "loss_sas": loss_sas.item()}
+        

@@ -13,6 +13,7 @@ from .shared import SafetySampleBuffer
 from .ssac import SSAC
 from .torch_util import Module, DummyModuleWrapper, device, torchify, random_choice, gpu_mem_info, deciles
 from .util import pythonic_mean, batch_map
+from .reward_classifier import RClassifier
 
 
 N_EVAL_TRAJ = 10
@@ -36,6 +37,7 @@ class SMBPO(Configurable, Module):
         solver_updates_per_step = 10 # n_actor in algo
         real_fraction = 0.1
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
+        rclassifier_updates_per_step = 10 # n_rclassifier
 
     def __init__(self, config, env_factory, data):
         Configurable.__init__(self, config)
@@ -52,6 +54,8 @@ class SMBPO(Configurable, Module):
 
         self.solver = SSAC(self.sac_cfg, self.state_dim, self.action_dim, self.horizon)
         self.model_ensemble = BatchedGaussianEnsemble(self.model_cfg, self.state_dim, self.action_dim)
+
+        self.rclassifier = RClassifier(self.state_dim, self.action_dim)
 
         self.replay_buffer = self._create_buffer(self.buffer_max)
         self.virt_buffer = self._create_buffer(self.buffer_max)
@@ -187,6 +191,8 @@ class SMBPO(Configurable, Module):
         solver = self.solver
         n_real = int(self.real_fraction * solver.batch_size)
         real_samples = self.replay_buffer.sample(n_real) # D_real
+        print(real_samples[0])
+        return
         virt_samples = self.virt_buffer.sample(solver.batch_size - n_real) # D_vir
         combined_samples = [
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
@@ -200,8 +206,13 @@ class SMBPO(Configurable, Module):
         if update_actor:
             solver.update_actor_and_alpha(combined_samples[0]) # Update policy
 
+    def update_rclassifier(self):
+        pass
+
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1
+        for _ in range(self.rclassifier_updates_per_step):
+            self.update_rclassifier()
         for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step. n_actor in algo
             self.update_solver()
 

@@ -192,8 +192,6 @@ class SMBPO(Configurable, Module):
         solver = self.solver
         n_real = int(self.real_fraction * solver.batch_size)
         real_samples = self.replay_buffer.sample(n_real) # D_real
-        print(real_samples[0])
-        return
         virt_samples = self.virt_buffer.sample(solver.batch_size - n_real) # D_vir
         combined_samples = [
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
@@ -208,18 +206,49 @@ class SMBPO(Configurable, Module):
             solver.update_actor_and_alpha(combined_samples[0]) # Update policy
 
     def update_rclassifier(self):
-        self.rclassifier.sas.train()
-        self.rclassifier.sa.train()
         n_real = int(self.rclassifier_real_fraction * self.rclassifier.batch_size)
         real_samples = self.replay_buffer.sample(n_real)
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
         sa_real, sa_virtual, sas_real, sas_virtual = self.parse_samples_for_rclassifier(real_samples, virt_samples)
         losses = self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
+        
+    def parse_samples_for_rclassifier(self, real_samples, virt_samples):
+        """
+        Parses real and virtual samples into (s, a) and (s, a, s') tensors 
+        for the RClassifier.
+        
+        Args:
+            real_samples: Tuple of tensors (s, a, s', r, d) from real experiences.
+            virt_samples: Tuple of tensors (s, a, s', r, d) from virtual experiences.
+    
+        Returns:
+            sa_real: (state, action) pairs from real samples (label 1)
+            sa_virtual: (state, action) pairs from virtual samples (label 0)
+            sas_real: (state, action, next_state) triples from real samples (label 1)
+            sas_virtual: (state, action, next_state) triples from virtual samples (label 0)
+        """
+        # Unpack real and virtual samples
+        real_states, real_actions, real_next_states, _, _ = real_samples
+        virt_states, virt_actions, virt_next_states, _, _ = virt_samples
+    
+        # Form (state, action) pairs
+        sa_real = torch.cat([real_states, real_actions], dim=1)
+        sa_virtual = torch.cat([virt_states, virt_actions], dim=1)
+    
+        # Form (state, action, next_state) triples
+        sas_real = torch.cat([real_states, real_actions, real_next_states], dim=1)
+        sas_virtual = torch.cat([virt_states, virt_actions, virt_next_states], dim=1)
+    
+        return sa_real, sa_virtual, sas_real, sas_virtual        
     
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1
+        self.rclassifier.sas.train(True)
+        self.rclassifier.sa.train(True)
         for _ in range(self.rclassifier_updates_per_step):
             self.update_rclassifier()
+        self.rclassifier.sas.train(False)
+        self.rclassifier.sa.train(False)
         for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step. n_actor in algo
             self.update_solver()
 

@@ -51,6 +51,8 @@ class RClassifier(Module, Configurable):
         self.optimizer_sas = torch.optim.Adam(self.sas.parameters(), lr=self.learning_rate)
         self.optimizer_sa = torch.optim.Adam(self.sa.parameters(), lr=self.learning_rate)
 
+        self.criterion = nn.CrossEntropyLoss()
+
     def step(self, sa_real, sa_virtual, sas_real, sas_virtual):
         """
         sa_real: Tensor of real (state, action) pairs, label=1

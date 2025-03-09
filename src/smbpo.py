@@ -196,11 +196,16 @@ class SMBPO(Configurable, Module):
         combined_samples = [
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
         ] # Combined samples
+        sa, sas = self.parse_samples_for_rclassifier(combined_samples)
+        with torch.no_grad():
+            sa_output = self.rclassifier.sa(sa)
+            sas_output = self.rclassifier.sas(sas)
+        importance_sampling_coefficients = (sas_output * (1-sa_output)) / ((1-sas_output) * sa_output)
         if self.alive_bonus != 0:
             REWARD_INDEX = 3
             assert combined_samples[REWARD_INDEX].ndim == 1
             combined_samples[REWARD_INDEX] = combined_samples[REWARD_INDEX] + self.alive_bonus
-        critic_loss = solver.update_critic(*combined_samples) # Update Q-values
+        critic_loss = solver.update_critic(*combined_samples, importance_sampling_coefficients) # Update Q-values
         self.recent_critic_losses.append(critic_loss)
         if update_actor:
             solver.update_actor_and_alpha(combined_samples[0]) # Update policy
@@ -209,37 +214,32 @@ class SMBPO(Configurable, Module):
         n_real = int(self.rclassifier_real_fraction * self.rclassifier.batch_size)
         real_samples = self.replay_buffer.sample(n_real)
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
-        sa_real, sa_virtual, sas_real, sas_virtual = self.parse_samples_for_rclassifier(real_samples, virt_samples)
+        sa_real, sas_real, = self.parse_samples_for_rclassifier(real_samples)
+        sa_virtual, sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
         losses = self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
         
-    def parse_samples_for_rclassifier(self, real_samples, virt_samples):
+    def parse_samples_for_rclassifier(self, samples):
         """
-        Parses real and virtual samples into (s, a) and (s, a, s') tensors 
+        Parses samples into (s, a) and (s, a, s') tensors 
         for the RClassifier.
         
         Args:
-            real_samples: Tuple of tensors (s, a, s', r, d) from real experiences.
-            virt_samples: Tuple of tensors (s, a, s', r, d) from virtual experiences.
+            samples: Tuple of tensors (s, a, s', r, d) from experiences.
     
         Returns:
-            sa_real: (state, action) pairs from real samples (label 1)
-            sa_virtual: (state, action) pairs from virtual samples (label 0)
-            sas_real: (state, action, next_state) triples from real samples (label 1)
-            sas_virtual: (state, action, next_state) triples from virtual samples (label 0)
+            sa: (state, action) pairs
+            sas: (state, action, next_state) triples
         """
         # Unpack real and virtual samples
-        real_states, real_actions, real_next_states, _, _ = real_samples
-        virt_states, virt_actions, virt_next_states, _, _ = virt_samples
+        states, actions, next_states, _, _ = samples
     
         # Form (state, action) pairs
-        sa_real = torch.cat([real_states, real_actions], dim=1)
-        sa_virtual = torch.cat([virt_states, virt_actions], dim=1)
+        sa = torch.cat([states, actions], dim=1)
     
         # Form (state, action, next_state) triples
-        sas_real = torch.cat([real_states, real_actions, real_next_states], dim=1)
-        sas_virtual = torch.cat([virt_states, virt_actions, virt_next_states], dim=1)
+        sas = torch.cat([states, actions, next_states], dim=1)
     
-        return sa_real, sa_virtual, sas_real, sas_virtual        
+        return sa, sas   
     
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1

@@ -70,7 +70,7 @@ class SMBPO(Configurable, Module):
         self.register_buffer('epochs_completed', torch.tensor(0))
 
         self.recent_critic_losses = []
-
+        self.recent_classifier_losses = {"sas":[], "sa":[]}
         self.stepper = None
 
     @property
@@ -217,7 +217,10 @@ class SMBPO(Configurable, Module):
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
         sa_real, sas_real, = self.parse_samples_for_rclassifier(real_samples)
         sa_virtual, sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
-        return self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
+        losses = self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
+        self.recent_classifier_losses["sa"].append(losses["loss_sa"])
+        self.recent_classifier_losses["sas"].append(losses["loss_sas"])
+        return losses
         
     def parse_samples_for_rclassifier(self, samples):
         """
@@ -308,6 +311,17 @@ class SMBPO(Configurable, Module):
         self.data.append('critic loss', avg_critic_loss)
         self.recent_critic_losses.clear()
 
+        avg_sa_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sa"])
+        avg_sas_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sas"])
+        log.message(f'Average recent SA classifier loss: {avg_sa_classifiers_loss}')
+        log.message(f'Average recent SAS classifier loss: {avg_sas_classifiers_loss}')
+        self.data.append('critic loss', avg_critic_loss)
+        self.data.append('SA loss', avg_sa_classifiers_loss)
+        self.data.append('SAS loss', avg_sas_classifiers_loss)
+        self.recent_critic_losses.clear()
+        self.recent_classifier_losses["sa"].clear()
+        self.recent_classifier_losses["sas"].clear()
+        
         log.message('Buffer sizes:')
         log.message(f'\tReal: {len(self.replay_buffer)}')
         log.message(f'\tVirtual: {len(self.virt_buffer)}')

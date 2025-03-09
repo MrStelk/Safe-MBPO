@@ -31,14 +31,14 @@ class SMBPO(Configurable, Module):
         save_trajectories = True
         horizon = 10
         alive_bonus = 0.0   # alternative: positive, rather than negative, reinforcement
-        buffer_min = 5000
+        buffer_min = 100 # 5000
         buffer_max = 10**6
         steps_per_epoch = 1000
         rollout_batch_size = 100
-        solver_updates_per_step = 10 # n_actor in algo
+        solver_updates_per_step = 1 # 10 # n_actor in algo
         real_fraction = 0.1
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
-        rclassifier_updates_per_step = 10 # n_rclassifier
+        rclassifier_updates_per_step = 1 # 10 # n_rclassifier
         rclassifier_real_fraction = 0.1
 
     def __init__(self, config, env_factory, data):
@@ -202,6 +202,7 @@ class SMBPO(Configurable, Module):
             sa_output = self.rclassifier.sa(sa)
             sas_output = self.rclassifier.sas(sas)
         importance_sampling_coefficients = (sas_output * (1-sa_output)) / ((1-sas_output) * sa_output)
+        # print(importance_sampling_coefficients.shape)
         if self.alive_bonus != 0:
             REWARD_INDEX = 3
             assert combined_samples[REWARD_INDEX].ndim == 1

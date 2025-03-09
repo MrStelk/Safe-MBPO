@@ -10,25 +10,33 @@ class SA(nn.Module):
         self.state_dim = state_dim
         self.action_dim = action_dim
         self.sa_classifier = nn.Sequential(
-            nn.Linear(state_dim+action_dim, 256),
+            nn.Linear(state_dim+action_dim, hidden_dim),
             nn.ReLU(),
-            nn.Linear(256, 1),
+            nn.Linear(hidden_dim, hidden_dim*2),
+            nn.ReLU(),
+            nn.Linear(hidden_dim*2, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, 1),
             nn.Sigmoid()
         )
         
     def forward(self, sa_input):
         sa_logit = self.sa_classifier(sa_input)
         return sa_logit
-
+ 
 class SAS(nn.Module):
     def __init__(self, state_dim, action_dim, hidden_dim):
         super().__init__()
         self.state_dim = state_dim
         self.action_dim = action_dim
         self.sas_classifier = nn.Sequential(
-            nn.Linear(2*state_dim+action_dim, 256),
+            nn.Linear(2*state_dim+action_dim, hidden_dim),
             nn.ReLU(),
-            nn.Linear(256, 1),
+            nn.Linear(hidden_dim, hidden_dim*2),
+            nn.ReLU(),
+            nn.Linear(hidden_dim*2, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, 1),
             nn.Sigmoid()
         )
         
@@ -39,8 +47,8 @@ class SAS(nn.Module):
 
 class RClassifier(Module, Configurable):
     class Config(BaseConfig):
-        sas_hidden_dim = 200
-        sa_hidden_dim = 200
+        sas_hidden_dim = 256
+        sa_hidden_dim = 256
         batch_size = 256
         learning_rate = 1e-3
     
@@ -55,7 +63,7 @@ class RClassifier(Module, Configurable):
 
         self.criterion = nn.BCELoss()
 
-         self.register_buffer('total_updates', torch.zeros([]))
+        self.register_buffer('total_updates', torch.zeros([]))
 
     def step(self, sa_real, sa_virtual, sas_real, sas_virtual):
         """

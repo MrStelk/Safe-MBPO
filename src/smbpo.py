@@ -24,6 +24,7 @@ class SMBPO(Configurable, Module):
     class Config(BaseConfig):
         sac_cfg = SSAC.Config()
         model_cfg = BatchedGaussianEnsemble.Config()
+        rclassifier_cfg = RClassifier.Config()
         model_initial_steps = 10000
         model_steps = 2000
         model_update_period = 250   # how many steps between updating the models
@@ -56,7 +57,7 @@ class SMBPO(Configurable, Module):
         self.solver = SSAC(self.sac_cfg, self.state_dim, self.action_dim, self.horizon)
         self.model_ensemble = BatchedGaussianEnsemble(self.model_cfg, self.state_dim, self.action_dim)
 
-        self.rclassifier = RClassifier(self.state_dim, self.action_dim)
+        self.rclassifier = RClassifier(self.rclassifier_cfg, self.state_dim, self.action_dim)
 
         self.replay_buffer = self._create_buffer(self.buffer_max)
         self.virt_buffer = self._create_buffer(self.buffer_max)
@@ -216,7 +217,7 @@ class SMBPO(Configurable, Module):
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
         sa_real, sas_real, = self.parse_samples_for_rclassifier(real_samples)
         sa_virtual, sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
-        losses = self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
+        return self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
         
     def parse_samples_for_rclassifier(self, samples):
         """

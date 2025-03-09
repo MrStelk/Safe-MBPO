@@ -1,9 +1,11 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from .torch_util import Module
+from .config import BaseConfig, Configurable
 
 class SA(nn.Module):
-    def __init__(self, state_dim, action_dim):
+    def __init__(self, state_dim, action_dim, hidden_dim):
         super().__init__()
         self.state_dim = state_dim
         self.action_dim = action_dim
@@ -18,7 +20,7 @@ class SA(nn.Module):
         return sa_logit
 
 class SAS(nn.Module):
-    def __init__(self, state_dim, action_dim):
+    def __init__(self, state_dim, action_dim, hidden_dim):
         super().__init__()
         self.state_dim = state_dim
         self.action_dim = action_dim
@@ -33,14 +35,21 @@ class SAS(nn.Module):
         return sas_logit
 
 
-class RClassifier(nn.Module):
-    def __init__(self, state_dim, action_dim, hidden_dim=64):
-        super().__init__()
-        self.sas = SAS(state_dim, action_dim)
-        self.sa = SA(state_dim, action_dim)
-        self.batch_size = 256
-        self.optimizer_sas = torch.optim.Adam(self.sas.parameters(), lr=lr)
-        self.optimizer_sa = torch.optim.Adam(self.sa.parameters(), lr=lr)
+class RClassifier(Module, Configurable):
+    class Config(BaseConfig):
+        sas_hidden_dim = 200
+        sa_hidden_dim = 200
+        batch_size = 256
+        learning_rate = 1e-3
+    
+    def __init__(self, config, state_dim, action_dim, hidden_dim=64):
+        Configurable.__init__(self, config)
+        Module.__init__(self)
+        
+        self.sas = SAS(state_dim, action_dim, self.sas_hidden_dim)
+        self.sa = SA(state_dim, action_dim, self.sa_hidden_dim)
+        self.optimizer_sas = torch.optim.Adam(self.sas.parameters(), lr=self.learning_rate)
+        self.optimizer_sa = torch.optim.Adam(self.sa.parameters(), lr=self.learning_rate)
 
     def step(self, sa_real, sa_virtual, sas_real, sas_virtual):
         """

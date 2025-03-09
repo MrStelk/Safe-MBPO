@@ -232,7 +232,7 @@ class SMBPO(Configurable, Module):
             sas: (state, action, next_state) triples
         """
         # Unpack real and virtual samples
-        states, actions, next_states, _, _ = samples
+        states, actions, next_states, rewards, dones, violations = samples
     
         # Form (state, action) pairs
         sa = torch.cat([states, actions], dim=1)

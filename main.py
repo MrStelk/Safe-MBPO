@@ -14,13 +14,13 @@ from src.smbpo import SMBPO
 
 
 ROOT_DIR = Path(ROOT_DIR)
-SAVE_PERIOD = 5
+SAVE_PERIOD = 10
 
 
 class Config(BaseConfig):
     env_name = Require(str)
     seed = 1
-    epochs = 1
+    epochs = 1000
     alg_cfg = SMBPO.Config()
 
 

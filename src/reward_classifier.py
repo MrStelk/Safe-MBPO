@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from .torch_util import Module
+from .torch_util import Module, device
 from .config import BaseConfig, Configurable
 
 class SA(nn.Module):
@@ -12,7 +12,8 @@ class SA(nn.Module):
         self.sa_classifier = nn.Sequential(
             nn.Linear(state_dim+action_dim, 256),
             nn.ReLU(),
-            nn.Linear(256, 2)
+            nn.Linear(256, 1),
+            nn.Sigmoid()
         )
         
     def forward(self, sa_input):
@@ -27,7 +28,8 @@ class SAS(nn.Module):
         self.sas_classifier = nn.Sequential(
             nn.Linear(2*state_dim+action_dim, 256),
             nn.ReLU(),
-            nn.Linear(256, 2)
+            nn.Linear(256, 1),
+            nn.Sigmoid()
         )
         
     def forward(self, sas_input):
@@ -51,7 +53,9 @@ class RClassifier(Module, Configurable):
         self.optimizer_sas = torch.optim.Adam(self.sas.parameters(), lr=self.learning_rate)
         self.optimizer_sa = torch.optim.Adam(self.sa.parameters(), lr=self.learning_rate)
 
-        self.criterion = nn.CrossEntropyLoss()
+        self.criterion = nn.BCELoss()
+
+         self.register_buffer('total_updates', torch.zeros([]))
 
     def step(self, sa_real, sa_virtual, sas_real, sas_virtual):
         """
@@ -62,14 +66,19 @@ class RClassifier(Module, Configurable):
         """
         # Prepare inputs and labels
         sa_inputs = torch.cat([sa_real, sa_virtual], dim=0)
-        sa_labels = torch.cat([torch.ones(len(sa_real)), torch.zeros(len(sa_virtual))], dim=0).long()
+        sa_labels = torch.cat([torch.ones(sa_real.shape[0]), torch.zeros(sa_virtual.shape[0])], dim=0).reshape(-1,1).to(device)
 
         sas_inputs = torch.cat([sas_real, sas_virtual], dim=0)
-        sas_labels = torch.cat([torch.ones(len(sas_real)), torch.zeros(len(sas_virtual))], dim=0).long()
+        sas_labels = torch.cat([torch.ones(sas_real.shape[0]), torch.zeros(sas_virtual.shape[0])], dim=0).reshape(-1,1).to(device)
+        
+        #print(sa_inputs.shape, sa_labels.shape)
+        #print(sas_inputs.shape, sas_labels.shape)
 
         # Forward pass
         sa_logits = self.sa(sa_inputs)
         sas_logits = self.sas(sas_inputs)
+
+        #print(sa_logits.shape, sas_logits.shape)
 
         # Compute loss
         loss_sa = self.criterion(sa_logits, sa_labels)
@@ -83,6 +92,8 @@ class RClassifier(Module, Configurable):
         self.optimizer_sas.zero_grad()
         loss_sas.backward()
         self.optimizer_sas.step()
+
+        self.total_updates += 1
 
         return {"loss_sa": loss_sa.item(), "loss_sas": loss_sas.item()}
         

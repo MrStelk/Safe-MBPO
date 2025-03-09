@@ -124,13 +124,14 @@ class SSAC(BasePolicy, Module):
             q[violation] = self.violation_value
             return q
 
-    def critic_loss_given_target(self, obs, action, target):
+    def critic_loss_given_target(self, obs, action, target, IS_coefficients):
         qs = self.critic.all(obs, action)
+        qs = [q * IS_coefficients for q  in qs]
         return pythonic_mean([self.criterion(q, target) for q in qs])
 
-    def critic_loss(self, obs, action, next_obs, reward, done, violation):
+    def critic_loss(self, obs, action, next_obs, reward, done, violation, IS_coefficients):
         target = self.compute_target(next_obs, reward, done, violation)
-        return self.critic_loss_given_target(obs, action, target)
+        return self.critic_loss_given_target(obs, action, target, IS_coefficients)
 
     def update_critic(self, *critic_loss_args):
         critic_loss = self.critic_loss(*critic_loss_args)

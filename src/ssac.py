@@ -128,7 +128,8 @@ class SSAC(BasePolicy, Module):
         qs = self.critic.all(obs, action)
         # print(f"yoooyo : {qs[0].shape}")
         # qs = [q * IS_coefficients.reshape(-1) for q  in qs]
-        return pythonic_mean([self.criterion(q, target) * IS_coefficients.reshape(-1) for q in qs])
+        is_ratio = IS_coefficients.reshape(-1)
+        return pythonic_mean([self.criterion(q*is_ratio, target*is_ratio) for q in qs])
 
     def critic_loss(self, obs, action, next_obs, reward, done, violation, IS_coefficients):
         target = self.compute_target(next_obs, reward, done, violation)

@@ -40,6 +40,7 @@ class SMBPO(Configurable, Module):
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
         rclassifier_updates_per_step = 10 # n_rclassifier
         rclassifier_real_fraction = 0.1
+        burnout = 100 # burnout period for classifiers
 
     def __init__(self, config, env_factory, data):
         Configurable.__init__(self, config)
@@ -197,13 +198,15 @@ class SMBPO(Configurable, Module):
         combined_samples = [
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
         ] # Combined samples
-        sa, sas = self.parse_samples_for_rclassifier(combined_samples)
-        with torch.no_grad():
-            sa_output = self.rclassifier.sa(sa)
-            sas_output = self.rclassifier.sas(sas)
-        importance_sampling_coefficients = (sas_output * (1-sa_output)) / (1+((1-sas_output) * sa_output))
-        # print(importance_sampling_coefficients.shape)
-        importance_sampling_coefficients = torch.log(importance_sampling_coefficients+1)
+        if self.epochs_completed > self.burnout:
+            sa, sas = self.parse_samples_for_rclassifier(combined_samples)
+            with torch.no_grad():
+                sa_output = self.rclassifier.sa(sa)
+                sas_output = self.rclassifier.sas(sas)
+            importance_sampling_coefficients = (sas_output * (1-sa_output)) / (1+((1-sas_output) * sa_output))
+            importance_sampling_coefficients = torch.log(importance_sampling_coefficients+1)
+        else:
+            importance_sampling_coefficients = torch.zeroes(combined_samples[0].shape[0], 1)
         if self.alive_bonus != 0:
             REWARD_INDEX = 3
             assert combined_samples[REWARD_INDEX].ndim == 1

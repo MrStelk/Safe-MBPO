@@ -19,7 +19,7 @@ SAVE_PERIOD = 5
 
 class Config(BaseConfig):
     env_name = Require(str)
-    seed = 1
+    seed = 31
     epochs = 1000
     alg_cfg = SMBPO.Config()
 
@@ -35,10 +35,12 @@ def main(cfg):
     # Check if existing run
     if data_checkpointer.try_load():
         log('Data load succeeded')
+        cfg.epochs+=1
         loaded_epoch = checkpointer.load_latest(list(range(0, cfg.epochs, SAVE_PERIOD)))
         if isinstance(loaded_epoch, int):
             assert loaded_epoch == alg.epochs_completed
             log('Solver load succeeded')
+            alg.stepper = alg.step_generator()
         else:
             assert alg.epochs_completed == 0
             log('Solver load failed')

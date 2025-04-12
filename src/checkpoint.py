@@ -73,6 +73,7 @@ class Checkpointer:
 
     def load(self, *args):
         loaded_state = torch.load(self._path(*args), map_location='cpu')
+        print("loaded_checkpointer_state")
         if isinstance(self.checkpointable, list):
             assert isinstance(loaded_state, list)
             for checkpointable, state_dict in zip(self.checkpointable, loaded_state):

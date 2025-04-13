@@ -40,7 +40,7 @@ class SMBPO(Configurable, Module):
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
         rclassifier_updates_per_step = 10 # n_rclassifier
         rclassifier_real_fraction = 0.1
-        burnout = 100 # burnout period for classifiers
+        burnout = 0 # burnout period for classifiers
 
     def __init__(self, config, env_factory, data):
         Configurable.__init__(self, config)
@@ -198,7 +198,7 @@ class SMBPO(Configurable, Module):
         combined_samples = [
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
         ] # Combined samples
-        if self.epochs_completed > self.burnout:
+        if self.epochs_completed >= self.burnout:
             sa, sas = self.parse_samples_for_rclassifier(combined_samples)
             with torch.no_grad():
                 sa_output = self.rclassifier.sa(sa)

@@ -22,7 +22,7 @@ class Config(BaseConfig):
     seed = 31
     epochs = 1000
     alg_cfg = SMBPO.Config()
-
+    episodes_path = None
 
 def main(cfg):
     env_factory = lambda: get_env(cfg.env_name)
@@ -44,6 +44,10 @@ def main(cfg):
         else:
             assert alg.epochs_completed == 0
             log('Solver load failed')
+        if cfg.episodes_path:
+            log("Loading episodes")
+            alg.load_episodes(cfg.episodes_path)
+            log("Loaded episodes")
     else:
         log('Data load failed')
 

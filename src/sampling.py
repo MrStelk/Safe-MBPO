@@ -80,7 +80,7 @@ class SampleBuffer(Module):
         buffer = cls(state_dim=states.shape[1], action_dim=actions.shape[1], capacity=n_steps,
                      discrete_actions=(not actions.dtype.is_floating_point),
                      device=device)
-        buffer.extend(*(data[name] for name in cls.COMPONENT_NAMES))
+        buffer.extend(**{name: data[name] for name in cls.COMPONENT_NAMES})
         return buffer
 
     def __len__(self):

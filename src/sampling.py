@@ -65,7 +65,7 @@ class SampleBuffer(Module):
     @classmethod
     def from_h5py(cls, path, device=device):
         with h5py.File(path, 'r') as f:
-            data = {name: torchify(np.array(f[name]), device=device) for name in f.keys()}
+            data = {name: torchify(np.array(f[name])) for name in f.keys()}
         n_steps = len(data['rewards'])
         if 'next_states' not in data:
             all_states = data['states']

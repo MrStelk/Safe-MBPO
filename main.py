@@ -22,7 +22,7 @@ class Config(BaseConfig):
     seed = 31
     epochs = 1000
     alg_cfg = SMBPO.Config()
-    episodes_path = None
+    episodes_path = "./results/original/seed97/logs/hopper/04-01-25_16.11.00_olcw/episodes"
 
 def main(cfg):
     env_factory = lambda: get_env(cfg.env_name)
@@ -47,7 +47,7 @@ def main(cfg):
         if cfg.episodes_path:
             log("Loading episodes")
             alg.load_episodes(cfg.episodes_path)
-            log("Loaded episodes")
+            log("Episodes loading succeeded")
     else:
         log('Data load failed')
 

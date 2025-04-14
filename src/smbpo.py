@@ -316,5 +316,10 @@ class SMBPO(Configurable, Module):
             all_buffers = [SafetySampleBuffer.from_h5py(p, device=device) for p in file_paths]
             for buf in all_buffers:
                 self.replay_buffer.extend(**buf.get(as_dict=True))       
+            
+            self.episodes_dir = log.dir/'episodes'
+            self.episodes_dir.mkdir(exist_ok=True)
+            print(len(self.virt_buffer))
         else:
             raise FileNotFoundError(f"{path} is not an episodes directory")
+        

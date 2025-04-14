@@ -367,19 +367,3 @@ class SMBPO(Configurable, Module):
             'eval length mean': length_mean,
             'eval length std': length_std
         }
-    
-    def load_episodes(self, path):
-        import os
-        import glob
-        # If path is a directory, load all episode files inside
-        if os.path.isdir(path):
-            file_paths = sorted(glob.glob(os.path.join(path, "episode-*.h5py")))
-            if not file_paths:
-                raise FileNotFoundError(f"No 'episode-*.h5py' files found in directory: {path}")
-            
-            all_buffers = [SafetySampleBuffer.from_h5py(p, device=device) for p in file_paths]
-            for buf in all_buffers:
-                self.replay_buffer.extend(**buf.get(as_dict=True))       
-            return master
-        else:
-            raise FileNotFoundError(f"{path} is not an episodes directory")

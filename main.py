@@ -14,7 +14,7 @@ from src.smbpo import SMBPO
 
 
 ROOT_DIR = Path(ROOT_DIR)
-SAVE_PERIOD = 5
+SAVE_PERIOD = 10
 
 
 class Config(BaseConfig):
@@ -22,7 +22,6 @@ class Config(BaseConfig):
     seed = 31
     epochs = 1000
     alg_cfg = SMBPO.Config()
-    episodes_path = "./results/original/seed97/logs/hopper/04-01-25_16.11.00_olcw/episodes"
 
 def main(cfg):
     env_factory = lambda: get_env(cfg.env_name)
@@ -35,7 +34,6 @@ def main(cfg):
     # Check if existing run
     if data_checkpointer.try_load():
         log('Data load succeeded')
-        cfg.epochs+=1
         loaded_epoch = checkpointer.load_latest(list(range(0, cfg.epochs, SAVE_PERIOD)))
         if isinstance(loaded_epoch, int):
             assert loaded_epoch == alg.epochs_completed
@@ -44,10 +42,8 @@ def main(cfg):
         else:
             assert alg.epochs_completed == 0
             log('Solver load failed')
-        if cfg.episodes_path:
-            log("Loading episodes")
-            alg.load_episodes(cfg.episodes_path)
-            log("Episodes loading succeeded")
+        alg.setup()
+        log("Episodes loading succeeded")
     else:
         log('Data load failed')
 

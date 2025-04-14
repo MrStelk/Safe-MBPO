@@ -216,8 +216,9 @@ class SMBPO(Configurable, Module):
             log.message(f'Loading existing {episodes_to_load} episodes')
             for i in trange(1, self.episodes_sampled + 1):
                 episode = SafetySampleBuffer.from_h5py(self.episodes_dir/f'episode-{i}.h5py')
-                self.replay_buffer.extend(*episode.get())
-
+                self.replay_buffer.extend(**episode.get(as_dict=True))
+            log.message("Loading episodes succeeded")
+            self.steps_sampled[...] = len(self.replay_buffer)
         assert len(self.replay_buffer) == self.steps_sampled
 
         self.stepper = self.step_generator()
@@ -303,23 +304,3 @@ class SMBPO(Configurable, Module):
             'eval length mean': length_mean,
             'eval length std': length_std
         }
-
-    def load_episodes(self, path):
-        import os
-        import glob
-        # If path is a directory, load all episode files inside
-        if os.path.isdir(path):
-            file_paths = sorted(glob.glob(os.path.join(path, "episode-*.h5py")))
-            if not file_paths:
-                raise FileNotFoundError(f"No 'episode-*.h5py' files found in directory: {path}")
-            
-            all_buffers = [SafetySampleBuffer.from_h5py(p, device=device) for p in file_paths]
-            for buf in all_buffers:
-                self.replay_buffer.extend(**buf.get(as_dict=True))       
-            
-            self.episodes_dir = log.dir/'episodes'
-            self.episodes_dir.mkdir(exist_ok=True)
-            print(len(self.virt_buffer))
-        else:
-            raise FileNotFoundError(f"{path} is not an episodes directory")
-        

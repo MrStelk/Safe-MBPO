@@ -203,6 +203,14 @@ class SMBPO(Configurable, Module):
             with torch.no_grad():
                 sa_output = self.rclassifier.sa(sa)
                 sas_output = self.rclassifier.sas(sas)
+            
+            denominator = (1 - sas_output) * sa_output
+            denominator = torch.clamp(denominator, min=1e-5)  # prevent division by zero
+
+            importance_sampling_coefficients = (sas_output * (1 - sa_output)) / denominator
+            importance_sampling_coefficients = torch.clamp(importance_sampling_coefficients, min=1e-5)  # for safe log
+            importance_sampling_coefficients = torch.log(importance_sampling_coefficients)
+
             importance_sampling_coefficients = (sas_output * (1-sa_output)) / (1+((1-sas_output) * sa_output))
             importance_sampling_coefficients = torch.log(importance_sampling_coefficients+1)
         else:

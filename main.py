@@ -39,9 +39,12 @@ def main(cfg):
         if isinstance(loaded_epoch, int):
             assert loaded_epoch == alg.epochs_completed
             log('Solver load succeeded')
+            alg.stepper = alg.step_generator()
         else:
             assert alg.epochs_completed == 0
             log('Solver load failed')
+        alg.setup()
+        log("Episodes loading succeeded")
     else:
         log('Data load failed')
 

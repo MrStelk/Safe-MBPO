@@ -210,9 +210,6 @@ class SMBPO(Configurable, Module):
             importance_sampling_coefficients = (sas_output * (1 - sa_output)) / denominator
             importance_sampling_coefficients = torch.clamp(importance_sampling_coefficients, min=1e-5)  # for safe log
             importance_sampling_coefficients = torch.log(importance_sampling_coefficients)
-
-            importance_sampling_coefficients = (sas_output * (1-sa_output)) / (1+((1-sas_output) * sa_output))
-            importance_sampling_coefficients = torch.log(importance_sampling_coefficients+1)
         else:
             importance_sampling_coefficients = torch.zeroes(combined_samples[0].shape[0], 1)
         if self.alive_bonus != 0:

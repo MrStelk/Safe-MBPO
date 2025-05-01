@@ -224,7 +224,7 @@ class SMBPO(Configurable, Module):
         n_real = int(self.rclassifier_real_fraction * self.rclassifier.batch_size)
         real_samples = self.replay_buffer.sample(n_real)
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
-        sas_real, = self.parse_samples_for_rclassifier(real_samples)
+        sas_real = self.parse_samples_for_rclassifier(real_samples)
         sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
         losses = self.rclassifier.step(sas_real, sas_virtual)
         self.recent_classifier_losses["sas"].append(losses["loss_sas"])
@@ -247,7 +247,7 @@ class SMBPO(Configurable, Module):
         # Form (state, action, next_state) triples
         sas = torch.cat([states, actions, next_states], dim=1)
     
-        return sa, sas   
+        return sas   
     
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1

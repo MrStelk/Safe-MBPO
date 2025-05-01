@@ -71,7 +71,7 @@ class SMBPO(Configurable, Module):
         self.register_buffer('epochs_completed', torch.tensor(0))
 
         self.recent_critic_losses = []
-        self.recent_classifier_losses = {"sas":[], "sa":[]}
+        self.recent_classifier_losses = {"sas":[]}
         self.stepper = None
 
     @property
@@ -199,15 +199,14 @@ class SMBPO(Configurable, Module):
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
         ] # Combined samples
         if self.epochs_completed >= self.burnout:
-            sa, sas = self.parse_samples_for_rclassifier(combined_samples)
+            sas = self.parse_samples_for_rclassifier(combined_samples)
             with torch.no_grad():
-                sa_output = self.rclassifier.sa(sa)
                 sas_output = self.rclassifier.sas(sas)
             
-            denominator = (1 - sas_output) * sa_output
+            denominator = (1 - sas_output)
             denominator = torch.clamp(denominator, min=1e-5)  # prevent division by zero
 
-            importance_sampling_coefficients = (sas_output * (1 - sa_output)) / denominator
+            importance_sampling_coefficients = sas_output / denominator
             importance_sampling_coefficients = torch.clamp(importance_sampling_coefficients, min=1e-5)  # for safe log
             importance_sampling_coefficients = torch.log(importance_sampling_coefficients)
         else:
@@ -225,10 +224,9 @@ class SMBPO(Configurable, Module):
         n_real = int(self.rclassifier_real_fraction * self.rclassifier.batch_size)
         real_samples = self.replay_buffer.sample(n_real)
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
-        sa_real, sas_real, = self.parse_samples_for_rclassifier(real_samples)
-        sa_virtual, sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
-        losses = self.rclassifier.step(sa_real, sa_virtual, sas_real, sas_virtual)
-        self.recent_classifier_losses["sa"].append(losses["loss_sa"])
+        sas_real, = self.parse_samples_for_rclassifier(real_samples)
+        sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
+        losses = self.rclassifier.step(sas_real, sas_virtual)
         self.recent_classifier_losses["sas"].append(losses["loss_sas"])
         return losses
         
@@ -247,9 +245,6 @@ class SMBPO(Configurable, Module):
         # Unpack real and virtual samples
         states, actions, next_states, rewards, dones, violations = samples
     
-        # Form (state, action) pairs
-        sa = torch.cat([states, actions], dim=1)
-    
         # Form (state, action, next_state) triples
         sas = torch.cat([states, actions, next_states], dim=1)
     
@@ -258,11 +253,9 @@ class SMBPO(Configurable, Module):
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1
         self.rclassifier.sas.train(True)
-        self.rclassifier.sa.train(True)
         for _ in range(self.rclassifier_updates_per_step):
             self.update_rclassifier()
         self.rclassifier.sas.train(False)
-        self.rclassifier.sa.train(False)
         for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step. n_actor in algo
             self.update_solver()
 

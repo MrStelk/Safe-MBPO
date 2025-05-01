@@ -7,5 +7,5 @@ ACTOR_LR = 3e-4
 CRITIC_LR = 1e-3
 
 # ROOT_DIR = None    # set a path (directory) where experiments should be saved
-ROOT_DIR ='/home/rahul/smbpo_k/Safe-MBPO/results/ismbpo'
+ROOT_DIR ='/home/sashi/smbpo/Safe-MBPO/results/ismbpo/seed1237_1000'
 #ROOT_DIR = '/tiger/u/gwthomas/data/smbpo'

@@ -232,14 +232,13 @@ class SMBPO(Configurable, Module):
         
     def parse_samples_for_rclassifier(self, samples):
         """
-        Parses samples into (s, a) and (s, a, s') tensors 
+        Parses samples into (s, a, s') tensors 
         for the RClassifier.
         
         Args:
             samples: Tuple of tensors (s, a, s', r, d) from experiences.
     
         Returns:
-            sa: (state, action) pairs
             sas: (state, action, next_state) triples
         """
         # Unpack real and virtual samples
@@ -316,15 +315,11 @@ class SMBPO(Configurable, Module):
         self.data.append('critic loss', avg_critic_loss)
         self.recent_critic_losses.clear()
 
-        avg_sa_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sa"])
         avg_sas_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sas"])
-        log.message(f'Average recent SA classifier loss: {avg_sa_classifiers_loss}')
         log.message(f'Average recent SAS classifier loss: {avg_sas_classifiers_loss}')
         self.data.append('critic loss', avg_critic_loss)
-        self.data.append('SA loss', avg_sa_classifiers_loss)
         self.data.append('SAS loss', avg_sas_classifiers_loss)
         self.recent_critic_losses.clear()
-        self.recent_classifier_losses["sa"].clear()
         self.recent_classifier_losses["sas"].clear()
         
         log.message('Buffer sizes:')

@@ -39,7 +39,7 @@ class SMBPO(Configurable, Module):
         real_fraction = 0.1
         action_clip_gap = 1e-6  # for clipping to promote numerical instability in logprob
         rclassifier_updates_per_step = 10 # n_rclassifier
-        rclassifier_real_fraction = 0.1
+        rclassifier_real_fraction = 0.5 # For training the classifier
         burnout = 0 # burnout period for classifiers
 
     def __init__(self, config, env_factory, data):
@@ -204,12 +204,15 @@ class SMBPO(Configurable, Module):
                 sa_output = self.rclassifier.sa(sa)
                 sas_output = self.rclassifier.sas(sas)
             
-            denominator = (1 - sas_output) * sa_output
-            denominator = torch.clamp(denominator, min=1e-5)  # prevent division by zero
+            # denominator = (1 - sas_output) * sa_output
+            # denominator = torch.clamp(denominator, min=1e-5)  # prevent division by zero
 
-            importance_sampling_coefficients = (sas_output * (1 - sa_output)) / denominator
-            importance_sampling_coefficients = torch.clamp(importance_sampling_coefficients, min=1e-5)  # for safe log
-            importance_sampling_coefficients = torch.log(importance_sampling_coefficients)
+            # importance_sampling_coefficients = (sas_output * (1 - sa_output)) / denominator
+            # importance_sampling_coefficients = torch.clamp(importance_sampling_coefficients, min=1e-5)  # for safe log
+            # importance_sampling_coefficients = torch.log(importance_sampling_coefficients)
+
+            importance_sampling_coefficients = torch.log((1-sas_output)) + torch.log(sa_output) - \
+                                                torch.log(sas_output) - torch.log((1-sa_output))
         else:
             importance_sampling_coefficients = torch.zeroes(combined_samples[0].shape[0], 1)
         if self.alive_bonus != 0:

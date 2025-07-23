@@ -11,11 +11,13 @@ def get_env(env_name, wrap_torch=True):
     from .env.cheetah_no_flip import CheetahNoFlipEnv
     from .env.ant_no_bonus import AntNoBonusEnv
     from .env.humanoid_no_bonus import HumanoidNoBonusEnv
+    from .env.walker_no_bonus import WalkerNoBonusEnv
     envs = {
         'hopper': HopperNoBonusEnv,
         'cheetah-no-flip': CheetahNoFlipEnv,
         'ant': AntNoBonusEnv,
-        'humanoid': HumanoidNoBonusEnv
+        'humanoid': HumanoidNoBonusEnv,
+        'walker': WalkerNoBonusEnv
     }
     env = envs[env_name]()
     if not (np.all(env.action_space.low == -1.0) and np.all(env.action_space.high == 1.0)):

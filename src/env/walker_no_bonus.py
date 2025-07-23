@@ -70,4 +70,4 @@ class WalkerNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     def check_violation(self, states):
         height = states[:,0]
         ang = states[:,1]
-        return ~(height > 0.8 and height < 2.0 and ang > -1.0 and ang < 1.0)
+        return ~((height > 0.8) & (height < 2.0) & (ang > -1.0) & (ang < 1.0))

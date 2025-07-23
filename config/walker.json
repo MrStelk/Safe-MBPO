@@ -1,0 +1,13 @@
+{
+  "env_name": "walker2d",
+  "alg_cfg": {
+    "sac_cfg": {
+      "target_entropy": -1.0
+    },
+    "buffer_min":1000,
+    "model_initial_steps":1000,
+    "model_steps":1500,
+    "model_update_period":20,
+    "horizon":20
+  }
+}

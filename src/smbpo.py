@@ -74,7 +74,10 @@ class SMBPO(Configurable, Module):
         self.is_sas = is_sas
 
         self.recent_critic_losses = []
-        self.recent_classifier_losses = {"sas":[]}
+        if is_sas:
+            self.recent_classifier_losses = {"sas":[]}
+        else:
+            self.recent_classifier_losses = {"sa":[]}
         self.stepper = None
 
     @property
@@ -230,10 +233,14 @@ class SMBPO(Configurable, Module):
         n_real = int(self.rclassifier_real_fraction * self.rclassifier.batch_size)
         real_samples = self.replay_buffer.sample(n_real)
         virt_samples = self.virt_buffer.sample(self.rclassifier.batch_size - n_real)
-        sas_real = self.parse_samples_for_rclassifier(real_samples)
-        sas_virtual = self.parse_samples_for_rclassifier(virt_samples)
-        losses = self.rclassifier.step(sas_real, sas_virtual)
-        self.recent_classifier_losses["sas"].append(losses["loss_sas"])
+        
+        classifier_real = self.parse_samples_for_rclassifier(real_samples)
+        classifier_virtual = self.parse_samples_for_rclassifier(virt_samples)
+        losses = self.rclassifier.step(classifier_real, classifier_virtual)
+        if self.is_sas:
+            self.recent_classifier_losses["sas"].append(losses["loss_sas"])
+        else:
+            self.recent_classifier_losses["sa"].append(losses["loss_sa"])
         return losses
         
     def parse_samples_for_rclassifier(self, samples):
@@ -252,15 +259,25 @@ class SMBPO(Configurable, Module):
     
         # Form (state, action, next_state) triples
         sas = torch.cat([states, actions, next_states], dim=1)
-    
-        return sas   
+        sa = torch.cat([states, actions], dim=1)
+
+        if is_sas:
+            return sas   
+        else:
+            return sa
     
     def rollout_and_update(self):
         self.rollout(self.actor) # Make samples according to actor and dynamics model. n_rollout in algo = 1
-        self.rclassifier.sas.train(True)
+        if self.is_sas:
+            self.rclassifier.sas.train(True)
+        else:
+            self.rclassifier.sa.train(True)
         for _ in range(self.rclassifier_updates_per_step):
             self.update_rclassifier()
-        self.rclassifier.sas.train(False)
+        if is_sas:
+            self.rclassifier.sas.train(False)
+        else:
+            self.rclassifier.sa.train(False)
         for _ in range(self.solver_updates_per_step): # 10 SAC updates for each step. n_actor in algo
             self.update_solver()
 

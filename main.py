@@ -14,7 +14,7 @@ from src.smbpo import SMBPO
 
 
 ROOT_DIR = Path(ROOT_DIR)
-SAVE_PERIOD = 10
+SAVE_PERIOD = 50
 
 
 class Config(BaseConfig):
@@ -27,7 +27,7 @@ class Config(BaseConfig):
 def main(cfg):
     env_factory = lambda: get_env(cfg.env_name)
     data = CheckpointableData()
-    alg = SMBPO(cfg.alg_cfg, env_factory, data)
+    alg = SMBPO(cfg.alg_cfg, env_factory, data, False)
     alg.to(device)
     checkpointer = Checkpointer(alg, log.dir, 'ckpt_{}.pt')
     data_checkpointer = Checkpointer(data, log.dir, 'data.pt')

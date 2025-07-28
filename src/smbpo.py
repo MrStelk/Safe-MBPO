@@ -69,7 +69,7 @@ class SMBPO(Configurable, Module):
         self.register_buffer('steps_sampled', torch.tensor(0)) # (s,a,s',r) is a step.
         self.register_buffer('n_violations', torch.tensor(0))
         self.register_buffer('epochs_completed', torch.tensor(0))
-        self.register_buffer('is_sas', torch.tensor(is_sas))
+        self.register_buffer('with_sas', torch.tensor(is_sas))
 
         self.is_sas = is_sas
 

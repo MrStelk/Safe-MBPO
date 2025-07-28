@@ -6,7 +6,7 @@ import torch.nn as nn
 
 
 #device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-device = torch.device('cuda:2')
+device = torch.device('cuda:0')
 
 def torchify(x, double_to_float=True, int_to_long=True, to_device=True):
     if torch.is_tensor(x):

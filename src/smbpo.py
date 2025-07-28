@@ -42,7 +42,7 @@ class SMBPO(Configurable, Module):
         rclassifier_real_fraction = 0.1
         burnout = 0 # burnout period for classifiers
 
-    def __init__(self, config, env_factory, data):
+    def __init__(self, config, env_factory, data, is_sas):
         Configurable.__init__(self, config)
         Module.__init__(self)
         self.data = data
@@ -58,7 +58,7 @@ class SMBPO(Configurable, Module):
         self.solver = SSAC(self.sac_cfg, self.state_dim, self.action_dim, self.horizon)
         self.model_ensemble = BatchedGaussianEnsemble(self.model_cfg, self.state_dim, self.action_dim)
 
-        self.rclassifier = RClassifier(self.rclassifier_cfg, self.state_dim, self.action_dim)
+        self.rclassifier = RClassifier(self.rclassifier_cfg, self.state_dim, self.action_dim, is_sas)
 
         self.replay_buffer = self._create_buffer(self.buffer_max)
         self.virt_buffer = self._create_buffer(self.buffer_max)
@@ -69,6 +69,9 @@ class SMBPO(Configurable, Module):
         self.register_buffer('steps_sampled', torch.tensor(0)) # (s,a,s',r) is a step.
         self.register_buffer('n_violations', torch.tensor(0))
         self.register_buffer('epochs_completed', torch.tensor(0))
+        self.register_buffer('is_sas', torch.tensor(is_sas))
+
+        self.is_sas = is_sas
 
         self.recent_critic_losses = []
         self.recent_classifier_losses = {"sas":[]}
@@ -199,17 +202,18 @@ class SMBPO(Configurable, Module):
             torch.cat([real, virt]) for real, virt in zip(real_samples, virt_samples)
         ] # Combined samples
         if self.epochs_completed >= self.burnout:
-            sas = self.parse_samples_for_rclassifier(combined_samples)
-            with torch.no_grad():
-                sas_output = self.rclassifier.sas(sas)
-            
-            denominator = (1 - sas_output)            
-
-            # importance_sampling_coefficients = sas_output / denominator
-            # importance_sampling_coefficients = torch.clamp(importance_sampling_coefficients, min=1e-5)  # for safe log
-            # importance_sampling_coefficients = torch.log(importance_sampling_coefficients)
-
-            importance_sampling_coefficients = sas_output / (denominator+1)
+            samples = self.parse_samples_for_rclassifier(combined_samples)
+            if self.is_sas:
+                with torch.no_grad():
+                    sas_output = self.rclassifier.sas(samples)
+                denominator = (1 - sas_output) 
+                importance_sampling_coefficients = sas_output / (denominator+1)
+            else:
+                with torch.no_grad():
+                    sa_output = self.rclassifier.sa(samples)
+                denominator = (sa_output) 
+                importance_sampling_coefficients = (1 - sa_output) / (denominator+1)
+                    
             importance_sampling_coefficients = torch.log(importance_sampling_coefficients+1)
         else:
             importance_sampling_coefficients = torch.zeroes(combined_samples[0].shape[0], 1)

@@ -261,7 +261,7 @@ class SMBPO(Configurable, Module):
         sas = torch.cat([states, actions, next_states], dim=1)
         sa = torch.cat([states, actions], dim=1)
 
-        if is_sas:
+        if self.is_sas:
             return sas   
         else:
             return sa
@@ -274,7 +274,7 @@ class SMBPO(Configurable, Module):
             self.rclassifier.sa.train(True)
         for _ in range(self.rclassifier_updates_per_step):
             self.update_rclassifier()
-        if is_sas:
+        if self.is_sas:
             self.rclassifier.sas.train(False)
         else:
             self.rclassifier.sa.train(False)

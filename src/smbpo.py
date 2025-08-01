@@ -338,12 +338,17 @@ class SMBPO(Configurable, Module):
         self.data.append('critic loss', avg_critic_loss)
         self.recent_critic_losses.clear()
 
-        avg_sas_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sas"])
-        log.message(f'Average recent SAS classifier loss: {avg_sas_classifiers_loss}')
-        self.data.append('critic loss', avg_critic_loss)
-        self.data.append('SAS loss', avg_sas_classifiers_loss)
-        self.recent_critic_losses.clear()
-        self.recent_classifier_losses["sas"].clear()
+        if self.is_sas:
+            avg_sas_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sas"])
+            log.message(f'Average recent SAS classifier loss: {avg_sas_classifiers_loss}')
+            self.data.append('SAS loss', avg_sas_classifiers_loss)
+            self.recent_classifier_losses["sas"].clear()
+        else:
+            avg_sa_classifiers_loss = pythonic_mean(self.recent_classifier_losses["sa"])
+            log.message(f'Average recent SA classifier loss: {avg_sa_classifiers_loss}')
+            self.data.append('SA loss', avg_sa_classifiers_loss)
+            self.recent_classifier_losses["sa"].clear()
+        
         
         log.message('Buffer sizes:')
         log.message(f'\tReal: {len(self.replay_buffer)}')

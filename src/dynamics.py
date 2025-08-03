@@ -53,7 +53,7 @@ class BatchedLinear(nn.Module):
 
 class BatchedGaussianEnsemble(Configurable, Module, BaseModel):
     class Config(BaseConfig):
-        ensemble_size = 5
+        ensemble_size = 1
         hidden_dim = 200
         trunk_layers = 2
         head_hidden_layers = 1

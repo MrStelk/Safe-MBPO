@@ -213,6 +213,8 @@ class SMBPO(Configurable, Module):
 
             # importance_sampling_coefficients = -torch.log((1-sas_output)) - torch.log(sa_output) + \
             #                                     torch.log(sas_output) + torch.log((1-sa_output))
+
+            # clipped density ratio
             importance_sampling_coefficients = torch.clamp((sas_output / sa_output) * ((1 - sa_output) / (1 - sas_output)), min=1e-4, max=1.0)
 
         else:

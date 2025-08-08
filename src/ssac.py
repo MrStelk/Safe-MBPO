@@ -129,7 +129,7 @@ class SSAC(BasePolicy, Module):
         # print(f"yoooyo : {qs[0].shape}")
         # qs = [q * IS_coefficients.reshape(-1) for q  in qs]
         #is_ratio = torch.exp(IS_coefficients).reshape(-1)
-         is_ratio = IS_coefficients.reshape(-1)
+        is_ratio = IS_coefficients.reshape(-1)
         return pythonic_mean([self.criterion(q*is_ratio, target*is_ratio) for q in qs])
 
     def critic_loss(self, obs, action, next_obs, reward, done, violation, IS_coefficients):

@@ -2,7 +2,7 @@
   "env_name": "inverted_double_pendulum",
   "alg_cfg": {
     "sac_cfg": {
-      "target_entropy": -4.0
+      "target_entropy": -1.0
     }
   }
 }

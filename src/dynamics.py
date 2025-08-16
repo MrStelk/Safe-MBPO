@@ -100,13 +100,12 @@ class BatchedGaussianEnsemble(Configurable, Module, BaseModel):
 
     def _forward1(self, states, actions, index):
         normalized_states = self.state_normalizer(states)
-        # 🔧 Fix dimension mismatch before concatenation
-        if normalized_states.ndim == 2 and actions.ndim == 3:
-        # Add ensemble dimension to states
-            normalized_states = normalized_states.unsqueeze(0).expand(actions.shape[0], -1, -1)
-        elif actions.ndim == 2 and normalized_states.ndim == 3:
-        # Add ensemble dimension to actions
-            actions = actions.unsqueeze(0).expand(normalized_states.shape[0], -1, -1)
+        if normalized_states.shape[1] == 1 and actions.shape[1] > 1:
+           # repeat states across the batch dimension
+           normalized_states = normalized_states.expand(-1, actions.shape[1], -1)
+        elif actions.shape[1] == 1 and normalized_states.shape[1] > 1:
+           # repeat actions across the batch dimension
+           actions = actions.expand(-1, normalized_states.shape[1], -1)
         inputs = torch.cat([normalized_states, actions], dim=-1)
         batch_size = inputs.shape[0]
         shared_hidden = unbatched_forward(self.trunk, inputs, index)

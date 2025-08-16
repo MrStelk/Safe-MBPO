@@ -37,7 +37,7 @@ class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
         #if self.render_mode == "human":
         #    self.render()
-        return ob, r, terminated, False, {}
+        return ob, r, done, False, {}
 
     def _get_obs(self):
         return np.concatenate(

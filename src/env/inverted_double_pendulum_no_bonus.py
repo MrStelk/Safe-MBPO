@@ -18,7 +18,7 @@ class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
     def __init__(self):
         #observation_space = Box(low=-np.inf, high=np.inf, shape=(11,), dtype=np.float64)
-        mujoco_env.__init__(self, 'inverted_double_pendulum.xml', 5)
+        mujoco_env.MujocoEnv.__init__(self, 'inverted_double_pendulum.xml', 5)
         utils.EzPickle.__init__(self)
         self._max_episode_steps = 1000
 

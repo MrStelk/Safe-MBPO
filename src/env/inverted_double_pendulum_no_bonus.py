@@ -35,8 +35,8 @@ class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         r = alive_bonus - dist_penalty - vel_penalty
         done = bool(y <= 1)
 
-        if self.render_mode == "human":
-            self.render()
+        #if self.render_mode == "human":
+        #    self.render()
         return ob, r, terminated, False, {}
 
     def _get_obs(self):

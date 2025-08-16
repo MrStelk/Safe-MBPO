@@ -108,7 +108,7 @@ class SMBPO(Configurable, Module):
             #assert done == self.check_done(next_state.unsqueeze(0))[0]
             #assert violation == self.check_violation(next_state.unsqueeze(0))[0]
             assert done == self.check_done(next_state.unsqueeze(0)).item()
-            assert violation == self.check_violation(next_state.unsqueeze(0))[0].item()
+            assert violation == self.check_violation(next_state.unsqueeze(0)).item()
 
             # Add the new step into D_real and the current episode.
             for buffer in [episode, self.replay_buffer]:

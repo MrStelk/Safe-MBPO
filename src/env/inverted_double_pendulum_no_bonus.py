@@ -44,7 +44,7 @@ class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
             reward_survive=alive_bonus,
             violation=done
         )
-        return ob, r, done, False, {}
+        return ob, r, done, info
 
     def _get_obs(self):
         return np.concatenate(

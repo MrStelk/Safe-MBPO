@@ -6,7 +6,7 @@ from gym.spaces import Box
 from gym.envs.mujoco import mujoco_env
 
 
-class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle)):
+class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     metadata = {
         "render_modes": [
             "human",

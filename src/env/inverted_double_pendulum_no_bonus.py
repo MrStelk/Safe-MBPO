@@ -76,6 +76,7 @@ class InvertedDoublePendulumNoBonusEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         return self.check_violation(states)
 
     def check_violation(self, states):
-        height = states[:,0]
-        ang = states[:,1]
+        #height = states[:,0]
+        #ang = states[:,1]
+        _, _, y = self.sim.data.site_xpos[0]   # directly from simulator
         return bool(y <= 1)

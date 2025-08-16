@@ -100,12 +100,6 @@ class BatchedGaussianEnsemble(Configurable, Module, BaseModel):
 
     def _forward1(self, states, actions, index):
         normalized_states = self.state_normalizer(states)
-        if normalized_states.shape[1] == 1 and actions.shape[1] > 1:
-           # repeat states across the batch dimension
-           normalized_states = normalized_states.expand(-1, actions.shape[1], -1)
-        elif actions.shape[1] == 1 and normalized_states.shape[1] > 1:
-           # repeat actions across the batch dimension
-           actions = actions.expand(-1, normalized_states.shape[1], -1)
         inputs = torch.cat([normalized_states, actions], dim=-1)
         batch_size = inputs.shape[0]
         shared_hidden = unbatched_forward(self.trunk, inputs, index)

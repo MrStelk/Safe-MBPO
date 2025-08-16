@@ -106,8 +106,9 @@ class SMBPO(Configurable, Module):
             next_state, reward, done, info = self.real_env.step(action)
             violation = info['violation']
             #assert done == self.check_done(next_state.unsqueeze(0))[0]
+            #assert violation == self.check_violation(next_state.unsqueeze(0))[0]
             assert done == self.check_done(next_state.unsqueeze(0)).item()
-            assert violation == self.check_violation(next_state.unsqueeze(0))[0]
+            assert violation == self.check_violation(next_state.unsqueeze(0))[0].item()
 
             # Add the new step into D_real and the current episode.
             for buffer in [episode, self.replay_buffer]:

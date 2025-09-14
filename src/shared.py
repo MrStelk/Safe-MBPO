@@ -12,12 +12,14 @@ def get_env(env_name, wrap_torch=True):
     from .env.ant_no_bonus import AntNoBonusEnv
     from .env.humanoid_no_bonus import HumanoidNoBonusEnv
     from .env.inverted_double_pendulum_no_bonus import InvertedDoublePendulumNoBonusEnv
+    from .env.walker_no_bonus import WalkerNoBonusEnv
     envs = {
         'hopper': HopperNoBonusEnv,
         'cheetah-no-flip': CheetahNoFlipEnv,
         'ant': AntNoBonusEnv,
         'humanoid': HumanoidNoBonusEnv,
-        'inverted_double_pendulum': InvertedDoublePendulumNoBonusEnv
+        'inverted_double_pendulum': InvertedDoublePendulumNoBonusEnv,
+        'walker': WalkerNoBonusEnv
     }
     env = envs[env_name]()
     if not (np.all(env.action_space.low == -1.0) and np.all(env.action_space.high == 1.0)):
